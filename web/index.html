@@ -108,7 +108,7 @@
                   </div>
                   <div class="customer__add-button">
                       <button type="reset">Clear</button>
-                      <button type="button">Add Customer</button>
+                      <button type="button" id="addCustomerBtn">Add Customer</button>
                   </div>
               </form>
            </div>
@@ -116,6 +116,7 @@
            <!--CUSTOMER VIEW START-->
            <div class="customer_view">
                <table>
+                   <thead>
                    <tr>
                        <th>No</th>
                        <th>NIC</th>
@@ -124,110 +125,10 @@
                        <th>Tel-No</th>
                        <th>Action</th>
                    </tr>
-                   <tr>
-                       <td>1</td>
-                       <td>991790381V</td>
-                       <td>Nimal</td>
-                       <td>Colombo</td>
-                       <td>0718925966</td>
-                       <td>Delete,Update</td>
-                   </tr>
-                   <tr>
-                    <td>2</td>
-                    <td>991790381V</td>
-                    <td>Nimal Perera Bandara</td>
-                    <td>Colombo panaduras</td>
-                    <td>0718925966</td>
-                    <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>991790381V</td>
-                            <td>Nimal Perera Bandara</td>
-                            <td>Colombo panaduras</td>
-                            <td>0718925966</td>
-                            <td>Delete,Update</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>991790381V</td>
-                                <td>Nimal Perera Bandara</td>
-                                <td>Colombo panaduras</td>
-                                <td>0718925966</td>
-                                <td>Delete,Update</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>991790381V</td>
-                                    <td>Nimal Perera Bandara</td>
-                                    <td>Colombo panaduras</td>
-                                    <td>0718925966</td>
-                                    <td>Delete,Update</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>991790381V</td>
-                                        <td>Nimal Perera Bandara</td>
-                                        <td>Colombo panaduras</td>
-                                        <td>0718925966</td>
-                                        <td>Delete,Update</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>991790381V</td>
-                                            <td>Nimal Perera Bandara</td>
-                                            <td>Colombo panaduras</td>
-                                            <td>0718925966</td>
-                                            <td>Delete,Update</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>991790381V</td>
-                                                <td>Nimal Perera Bandara</td>
-                                                <td>Colombo panaduras</td>
-                                                <td>0718925966</td>
-                                                <td>Delete,Update</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>991790381V</td>
-                                                    <td>Nimal Perera Bandara</td>
-                                                    <td>Colombo panaduras</td>
-                                                    <td>0718925966</td>
-                                                    <td>Delete,Update</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>991790381V</td>
-                                                        <td>Nimal Perera Bandara</td>
-                                                        <td>Colombo panaduras</td>
-                                                        <td>0718925966</td>
-                                                        <td>Delete,Update</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>991790381V</td>
-                                                            <td>Nimal Perera Bandara</td>
-                                                            <td>Colombo panaduras</td>
-                                                            <td>0718925966</td>
-                                                            <td>Delete,Update</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>991790381V</td>
-                                                                <td>Nimal Perera Bandara</td>
-                                                                <td>Colombo panaduras</td>
-                                                                <td>0718925966</td>
-                                                                <td>Delete,Update</td>
-                                                                </tr>
+                   </thead>
+                   <tbody id="customerTbl">
+
+                   </tbody>
                                                                 
                </table>
            </div>
@@ -268,5 +169,7 @@
    <div class="place-order"></div>
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
    <script src="./script/script.js"></script>
+    <script src="./script/ajax.js"></script>
+    <script src="./model/customer.js"></script>
 </body>
 </html>
