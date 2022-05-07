@@ -1,7 +1,7 @@
  const  loadAllCustomers = function (resp) {
 
     $("#customerTbl").empty();
-     $("#customerTbl").off();
+    $("#customerTbl").off();
 
     var customer = new Customer();
     var count = 0;
@@ -23,13 +23,39 @@
         $("#customerTbl").append(row);
 
 
+        //tr hover
+        $('#customerTbl tr').hover(function()
+        {
+            $(this).find('td').addClass('hover');
+        }, function()
+        {
+            $(this).find('td').removeClass('hover');
+        });
 
-            $("#customerTbl").on('click','.customerUpdateBtn',function(){
+        //update icon hover
+
+        $('.customerUpdateBtn').hover(function () {
+                 $(this).addClass('iconUpdate')
+        },function () {
+                 $(this).removeClass('iconUpdate')
+        });
+
+        //delete icon hover
+        $('.customerDeleteBtn').hover(function () {
+            $(this).addClass('iconDelete');
+        },function () {
+            $(this).removeClass('iconDelete');
+        });
+
+
+        $("#customerTbl").on('click','.customerUpdateBtn',function(){
+                clearAllUpdateFields();
                 customerUpdate($(this).closest("tr"))
+
             });
 
             $("#customerTbl").on('click','.customerDeleteBtn',function(){
-                customerDelete($(this).closest("tr"))
+               customerDelete($(this).closest("tr"))
            });
     }
 }
@@ -52,9 +78,19 @@ const customerUpdate = function (currentRow) {
 }
 const customerDelete = function (currentRow) {
 
-    alert(`Are you sure drop ${currentRow.find("td:eq(1)").text()} ${currentRow.find("td:eq(2)").text()} Customer ?`);
+   var selected =  confirm(`Are you sure drop ${currentRow.find("td:eq(1)").text()} ${currentRow.find("td:eq(2)").text()} Customer ?`);
+
+ if(selected){
+     deleteCustomer(currentRow.find("td:eq(1)").text());
+     return;
+ }
 
 
+}
 
-
+function  clearAllUpdateFields(){
+    $('#txtCustomerUpdateId').val("");
+    $('#txtCustomerUpdateName').val("");
+    $('#txtCustomerUpdateAddress').val("");
+    $('#txtCustomerUpdateTel').val("");
 }

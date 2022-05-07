@@ -106,7 +106,7 @@ $('body').ready(function(){
 //clear field
 
 function clearAllFields(){
-    console.log("hh")
+
     $('#txtCustomerId').val(" ");
     $('#txtCustomerName').val(" ");
     $('#txtCustomerAddress').val(" ");

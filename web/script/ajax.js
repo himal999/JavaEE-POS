@@ -12,6 +12,26 @@ $("#view-customer").click(()=>{
     })
 });
 
+$('#addCustomerBtn').click(function () {
+   var data =  $('#customerAddForm').serialize();
+    $.ajax({
+        url:"customer",
+        method:"POST",
+        data:data,
+        success:function (resp) {
+            clearAllFields();
+            $.ajax({
+                url:"customer",
+                method:"GET",
+                success:function (resp) {
+                    loadAllCustomers(resp)
+
+                }
+            });
+        }
+    })
+})
+
 $('#customerUpdateConfirmBtn').click(()=>{
     var customer  = {
         "id":$("#txtCustomerUpdateId").val(),
@@ -39,4 +59,23 @@ $('#customerUpdateConfirmBtn').click(()=>{
 
         }
     })
-})
+});
+
+function deleteCustomer(customerId) {
+
+ $.ajax({
+    url:"customer?customerId="+customerId,
+    method:"DELETE",
+
+    success:function (resp) {
+         $.ajax({
+             url:"customer",
+             method:"GET",
+             success:function (resp) {
+                 loadAllCustomers(resp)
+
+             }
+         })
+    }
+ })
+}

@@ -56,6 +56,29 @@ public class CustomerControllerServlet extends HttpServlet {
     }
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Customer customer = new Customer(req.getParameter("txtCustomerAddId"),req.getParameter("txtCustomerAddName"),req.getParameter("txtCustomerAddAddress"),Integer.parseInt(req.getParameter("txtCustomerAddTel")));
+
+        try {
+            PreparedStatement pst = Db.db().getConnection().prepareStatement("INSERT INTO `customer` VALUES(?,?,?,?)");
+            pst.setString(1,customer.getNic());
+            pst.setString(2,customer.getName());
+            pst.setString(3,customer.getAddress());
+            pst.setInt(4,customer.getTel());
+            if(pst.executeUpdate()>0){
+
+            }else{
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         JsonObject customerJson = Json.createReader(req.getReader()).readObject();
         Customer customer = new Customer(customerJson.getString("id"),customerJson.getString("name"),customerJson.getString("address"),Integer.parseInt(customerJson.getString("tel")));
@@ -82,5 +105,28 @@ public class CustomerControllerServlet extends HttpServlet {
         }
 
 
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        try {
+            PreparedStatement pst = Db.db().getConnection().prepareStatement("DELETE FROM `customer` WHERE nic=?");
+            pst.setString(1,req.getParameter("customerId"));
+
+            PrintWriter writer = resp.getWriter();
+
+
+            if(pst.executeUpdate()>0){
+                writer.write("success");
+            }else{
+                writer.write("try again");
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
