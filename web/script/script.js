@@ -98,13 +98,8 @@ $('body').ready(function(){
        $('.customer').removeClass('body-blue');
    });
 
-   //update customer click
 
 
-
-   //delete customer click
-  
- 
 
 });
 
@@ -124,3 +119,9 @@ $('#customer-update-delete-close').click(()=>{
     $('.customer').removeClass('body-blue');
     $('.customer__update-delete').css('display','none')
 })
+
+//
+
+
+
+

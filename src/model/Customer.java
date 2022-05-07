@@ -20,6 +20,8 @@ public class Customer {
         this.tel = tel;
     }
 
+
+
     public String getNic() {
         return nic;
     }

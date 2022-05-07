@@ -7,9 +7,7 @@ version : 0.0.1
 import db.Db;
 import model.Customer;
 
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
+import javax.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 
 @WebServlet(urlPatterns = "/customer")
 public class CustomerControllerServlet extends HttpServlet {
@@ -47,6 +46,35 @@ public class CustomerControllerServlet extends HttpServlet {
 
 
 
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        JsonObject customerJson = Json.createReader(req.getReader()).readObject();
+        Customer customer = new Customer(customerJson.getString("id"),customerJson.getString("name"),customerJson.getString("address"),Integer.parseInt(customerJson.getString("tel")));
+
+        try {
+            PreparedStatement pst = Db.db().getConnection().prepareStatement("UPDATE `customer` SET name=?,address=?,tel=? WHERE nic=?");
+            pst.setString(1,customer.getName());
+            pst.setString(2,customer.getAddress());
+            pst.setInt(3,customer.getTel());
+            pst.setString(4,customer.getNic());
+
+            PrintWriter writer = resp.getWriter();
+
+
+            if(pst.executeUpdate()>0){
+                writer.write("updated customer");
+            }else{
+                writer.write("try again");
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

@@ -140,26 +140,26 @@
      <div class="customer__update-delete">
         <i class='bx bx-x' id="customer-update-delete-close"></i>
          <h3 id="customer-update-delete-title">Update Customer Details</h3>
-        <form>
+        <form id="customerUpdateForm">
             <div class="customer__update-form">
               <label class="customer__update-form-label ">Customer NIC :</label>
-              <input class="customer__update-form-input l1" id="" type="text" placeholder="e.g:991790381v">
+              <input class="customer__update-form-input l1" id="txtCustomerUpdateId" type="text" placeholder="e.g:991790381v" name="txtCustomerId">
             </div>
             <div class="customer__update-form">
               <label class="customer__update-form-label ">Customer Name :</label>
-              <input class="customer__update-form-input l2" id="" type="text" placeholder="e.g:Nimal Perera">
+              <input class="customer__update-form-input l2" id="txtCustomerUpdateName" type="text" placeholder="e.g:Nimal Perera"name="txtCustomerName">
             </div>
             <div class="customer__update-form">
               <label  class="customer__update-form-label">Customer Address :</label>
-              <input class="customer__update-form-input "id="" type="text" placeholder="e.g:Colombo">
+              <input class="customer__update-form-input "id="txtCustomerUpdateAddress" type="text" placeholder="e.g:Colombo"name="txtCustomerAddress">
             </div>
             <div class="customer__update-form">
               <label  class="customer__update-form-label l4">Customer Tel-No :</label>
-              <input  class="customer__update-form-input l4"id="" type="text" placeholder="e.g:0718925966">
+              <input  class="customer__update-form-input l4"id="txtCustomerUpdateTel" type="text" placeholder="e.g:0718925966"name="txtCustomerTel">
             </div>
             <div class="customer__update-button">
                 <button type="reset">Clear</button>
-                <button type="button">Change</button>
+                <button type="button" id="customerUpdateConfirmBtn">Change</button>
             </div>
         </form>
     </div>
@@ -171,5 +171,6 @@
    <script src="./script/script.js"></script>
     <script src="./script/ajax.js"></script>
     <script src="./model/customer.js"></script>
+    <script src="./script/customerFunction.js"></script>
 </body>
 </html>
