@@ -1,6 +1,8 @@
-   loadAllCustomers = function (resp) {
-       console.log(resp)
+ const  loadAllCustomers = function (resp) {
+
     $("#customerTbl").empty();
+     $("#customerTbl").off();
+
     var customer = new Customer();
     var count = 0;
 
@@ -12,6 +14,7 @@
     for (const temp of resp){
 
         count++;
+
         customer.setId(temp.id)
         customer.setName(temp.name)
         customer.setAddress(temp.address)
@@ -19,24 +22,39 @@
         let row = `<tr><td>${count}</td><td>${customer.getId()}</td><td>${customer.getName()}</td><td>${customer.getAddress()}</td><td>${customer.getTel()}</td><td>${action}</td></tr>`
         $("#customerTbl").append(row);
 
-        $(".customerUpdateBtn").click(()=>{
-            customerUpdate();
-        });
-        $(".customerDeleteBtn").click(()=>{
-            customerDelete();
-        });
+
+
+            $("#customerTbl").on('click','.customerUpdateBtn',function(){
+                customerUpdate($(this).closest("tr"))
+            });
+
+            $("#customerTbl").on('click','.customerDeleteBtn',function(){
+                customerDelete($(this).closest("tr"))
+           });
     }
 }
 
-const customerUpdate = function () {
+const customerUpdate = function (currentRow) {
+
     $('#customer-update-delete-title').text("Update Customer Details")
     $('.customer').addClass('body-blue');
     $('.customer').css('display','block');
     $('.customer__update-delete').css('display','block')
+
+
+    $('#txtCustomerUpdateId').val(currentRow.find("td:eq(1)").text())
+    $('#txtCustomerUpdateName').val(currentRow.find("td:eq(2)").text())
+    $('#txtCustomerUpdateAddress').val(currentRow.find("td:eq(3)").text())
+    $('#txtCustomerUpdateTel').val(currentRow.find("td:eq(4)").text())
+
+
+
 }
-const customerDelete = function () {
-    $('#customer-update-delete-title').text("Delete Customer Details")
-    $('.customer').addClass('body-blue');
-    $('.customer').css('display','block');
-    $('.customer__update-delete').css('display','block')
+const customerDelete = function (currentRow) {
+
+    alert(`Are you sure drop ${currentRow.find("td:eq(1)").text()} ${currentRow.find("td:eq(2)").text()} Customer ?`);
+
+
+
+
 }

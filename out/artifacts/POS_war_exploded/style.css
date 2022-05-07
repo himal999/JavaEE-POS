@@ -225,6 +225,7 @@
   display: -ms-flexbox;
   display: flex;
   height: auto;
+
 }
 
 .customer .customer__container {
@@ -242,6 +243,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
 }
 
 .customer .customer__container h2 {
@@ -268,6 +270,7 @@
   flex-direction: column;
   -webkit-box-shadow: 0px 10px 10px var(--color-grey-1);
   box-shadow: 0px 10px 10px var(--color-grey-1);
+  overflow-x: hidden;
 }
 
 .customer .customer__container .customer__navigation-container h3 {
