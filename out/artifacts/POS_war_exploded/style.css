@@ -12,7 +12,7 @@
   --color-grey-4:#adad85;
   --color-grey-5:#d3d3d3;
   --color-yellow:#ffff1a;
-  --color-blue:#0040ff;
+  --color-blue: #697084;
   --color-red: #ff4d4d;
   --color-blue-1:#3385ff;
 }
@@ -217,7 +217,7 @@
   cursor: pointer;
 }
 
-.customer {
+.customer,.item {
   position: relative;
   top: 115px;
   left: 300px;
@@ -230,7 +230,7 @@
 
 }
 
-.customer .customer__container {
+.customer .customer__container, .customer .item__container, .item .customer__container, .item .item__container {
   position: relative;
   width: inherit;
   margin: 1rem 1rem;
@@ -249,14 +249,14 @@
 
 }
 
-.customer .customer__container h2 {
+.customer .customer__container h2 , .customer .item__container h2, .item .customer__container h2, .item .item__container h2 {
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
 
-.customer .customer__container .customer__navigation-container {
+.customer .customer__container .customer__navigation-container, .customer .customer__container .item__navigation-container, .customer .item__container .customer__navigation-container, .customer .item__container .item__navigation-container, .item .customer__container .customer__navigation-container, .item .customer__container .item__navigation-container, .item .item__container .customer__navigation-container, .item .item__container .item__navigation-container {
   position: relative;
   background-color: var(--color-grey-4);
   width: 100%;
@@ -276,18 +276,18 @@
   overflow-x: hidden;
 }
 
-.customer .customer__container .customer__navigation-container h3 {
+.customer .customer__container .customer__navigation-container h3, .customer .customer__container .item__navigation-container h3, .customer .item__container .customer__navigation-container h3, .customer .item__container .item__navigation-container h3, .item .customer__container .customer__navigation-container h3, .item .customer__container .item__navigation-container h3, .item .item__container .customer__navigation-container h3, .item .item__container .item__navigation-container h3 {
   margin-left: 1rem;
   margin-bottom: .4rem;
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.customer .customer__container .customer__navigation-container span {
+.customer .customer__container .customer__navigation-container span, .item .item__container .item__navigation-container span {
   margin-left: 1rem;
 }
 
-.customer .customer__container .cutomer__add {
+.customer .customer__container .cutomer__add, .customer .customer__container .item__add, .customer .item__container .cutomer__add, .customer .item__container .item__add, .item .customer__container .cutomer__add, .item .customer__container .item__add, .item .item__container .cutomer__add, .item .item__container .item__add  {
   position: relative;
   width: 100%;
   display: -webkit-box;
@@ -296,21 +296,21 @@
   margin-top: 2rem;
 }
 
-.customer .customer__container .cutomer__add form {
+.customer .customer__container .cutomer__add form , .customer .customer__container .item__add form, .customer .item__container .cutomer__add form, .customer .item__container .item__add form, .item .customer__container .cutomer__add form, .item .customer__container .item__add form, .item .item__container .cutomer__add form, .item .item__container .item__add form {
   position: relative;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form {
+.customer .customer__container .cutomer__add form .customer__add-form, .customer .customer__container .cutomer__add form .item__add-form, .customer .customer__container .item__add form .customer__add-form, .customer .customer__container .item__add form .item__add-form, .customer .item__container .cutomer__add form .customer__add-form, .customer .item__container .cutomer__add form .item__add-form, .customer .item__container .item__add form .customer__add-form, .customer .item__container .item__add form .item__add-form, .item .customer__container .cutomer__add form .customer__add-form, .item .customer__container .cutomer__add form .item__add-form, .item .customer__container .item__add form .customer__add-form, .item .customer__container .item__add form .item__add-form, .item .item__container .cutomer__add form .customer__add-form, .item .item__container .cutomer__add form .item__add-form, .item .item__container .item__add form .customer__add-form, .item .item__container .item__add form .item__add-form {
   position: relative;
   margin: 1rem 1rem;
   margin-bottom: 3rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .customer__add-form-label {
+.customer .customer__container .cutomer__add form .customer__add-form .customer__add-form-label, .customer .customer__container .cutomer__add form .customer__add-form .item__add-form-label, .customer .customer__container .cutomer__add form .item__add-form .customer__add-form-label, .customer .customer__container .cutomer__add form .item__add-form .item__add-form-label, .customer .customer__container .item__add form .customer__add-form .customer__add-form-label, .customer .customer__container .item__add form .customer__add-form .item__add-form-label, .customer .customer__container .item__add form .item__add-form .customer__add-form-label, .customer .customer__container .item__add form .item__add-form .item__add-form-label, .customer .item__container .cutomer__add form .customer__add-form .customer__add-form-label, .customer .item__container .cutomer__add form .customer__add-form .item__add-form-label, .customer .item__container .cutomer__add form .item__add-form .customer__add-form-label, .customer .item__container .cutomer__add form .item__add-form .item__add-form-label, .customer .item__container .item__add form .customer__add-form .customer__add-form-label, .customer .item__container .item__add form .customer__add-form .item__add-form-label, .customer .item__container .item__add form .item__add-form .customer__add-form-label, .customer .item__container .item__add form .item__add-form .item__add-form-label, .item .customer__container .cutomer__add form .customer__add-form .customer__add-form-label, .item .customer__container .cutomer__add form .customer__add-form .item__add-form-label, .item .customer__container .cutomer__add form .item__add-form .customer__add-form-label, .item .customer__container .cutomer__add form .item__add-form .item__add-form-label, .item .customer__container .item__add form .customer__add-form .customer__add-form-label, .item .customer__container .item__add form .customer__add-form .item__add-form-label, .item .customer__container .item__add form .item__add-form .customer__add-form-label, .item .customer__container .item__add form .item__add-form .item__add-form-label, .item .item__container .cutomer__add form .customer__add-form .customer__add-form-label, .item .item__container .cutomer__add form .customer__add-form .item__add-form-label, .item .item__container .cutomer__add form .item__add-form .customer__add-form-label, .item .item__container .cutomer__add form .item__add-form .item__add-form-label, .item .item__container .item__add form .customer__add-form .customer__add-form-label, .item .item__container .item__add form .customer__add-form .item__add-form-label, .item .item__container .item__add form .item__add-form .customer__add-form-label, .item .item__container .item__add form .item__add-form .item__add-form-label {
   font-size: 1.2rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .customer__add-form-input {
+.customer .customer__container .cutomer__add form .customer__add-form .customer__add-form-input, .customer .customer__container .cutomer__add form .customer__add-form .item__add-form-input, .customer .customer__container .cutomer__add form .item__add-form .customer__add-form-input, .customer .customer__container .cutomer__add form .item__add-form .item__add-form-input, .customer .customer__container .item__add form .customer__add-form .customer__add-form-input, .customer .customer__container .item__add form .customer__add-form .item__add-form-input, .customer .customer__container .item__add form .item__add-form .customer__add-form-input, .customer .customer__container .item__add form .item__add-form .item__add-form-input, .customer .item__container .cutomer__add form .customer__add-form .customer__add-form-input, .customer .item__container .cutomer__add form .customer__add-form .item__add-form-input, .customer .item__container .cutomer__add form .item__add-form .customer__add-form-input, .customer .item__container .cutomer__add form .item__add-form .item__add-form-input, .customer .item__container .item__add form .customer__add-form .customer__add-form-input, .customer .item__container .item__add form .customer__add-form .item__add-form-input, .customer .item__container .item__add form .item__add-form .customer__add-form-input, .customer .item__container .item__add form .item__add-form .item__add-form-input, .item .customer__container .cutomer__add form .customer__add-form .customer__add-form-input, .item .customer__container .cutomer__add form .customer__add-form .item__add-form-input, .item .customer__container .cutomer__add form .item__add-form .customer__add-form-input, .item .customer__container .cutomer__add form .item__add-form .item__add-form-input, .item .customer__container .item__add form .customer__add-form .customer__add-form-input, .item .customer__container .item__add form .customer__add-form .item__add-form-input, .item .customer__container .item__add form .item__add-form .customer__add-form-input, .item .customer__container .item__add form .item__add-form .item__add-form-input, .item .item__container .cutomer__add form .customer__add-form .customer__add-form-input, .item .item__container .cutomer__add form .customer__add-form .item__add-form-input, .item .item__container .cutomer__add form .item__add-form .customer__add-form-input, .item .item__container .cutomer__add form .item__add-form .item__add-form-input, .item .item__container .item__add form .customer__add-form .customer__add-form-input, .item .item__container .item__add form .customer__add-form .item__add-form-input, .item .item__container .item__add form .item__add-form .customer__add-form-input, .item .item__container .item__add form .item__add-form .item__add-form-input {
   outline: none;
   border: 1.5px solid var(--color-grey-1);
   padding-left: 1rem;
@@ -318,27 +318,41 @@
   height: 2rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .l1 {
+.customer .customer__container .cutomer__add form .customer__add-form .l1, .customer .customer__container .cutomer__add form .item__add-form .l1, .customer .customer__container .item__add form .customer__add-form .l1, .customer .customer__container .item__add form .item__add-form .l1, .customer .item__container .cutomer__add form .customer__add-form .l1, .customer .item__container .cutomer__add form .item__add-form .l1, .customer .item__container .item__add form .customer__add-form .l1, .customer .item__container .item__add form .item__add-form .l1, .item .customer__container .cutomer__add form .customer__add-form .l1, .item .customer__container .cutomer__add form .item__add-form .l1, .item .customer__container .item__add form .customer__add-form .l1, .item .customer__container .item__add form .item__add-form .l1, .item .item__container .cutomer__add form .customer__add-form .l1, .item .item__container .cutomer__add form .item__add-form .l1, .item .item__container .item__add form .customer__add-form .l1, .item .item__container .item__add form .item__add-form .l1 {
   margin-right: 2.3rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .l2 {
+.customer .customer__container .cutomer__add form .customer__add-form .l2, .item .item__container .cutomer__add form .item__add-form .l2, .item .item__container .item__add form .customer__add-form .l2, .item .item__container .item__add form .item__add-form .l2  {
   margin-right: 1.2rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .l4 {
+.customer .customer__container .cutomer__add form .customer__add-form .l4, .customer .customer__container .cutomer__add form .item__add-form .l4, .customer .customer__container .item__add form .customer__add-form .l4, .customer .customer__container .item__add form .item__add-form .l4, .customer .item__container .cutomer__add form .customer__add-form .l4, .customer .item__container .cutomer__add form .item__add-form .l4, .customer .item__container .item__add form .customer__add-form .l4, .customer .item__container .item__add form .item__add-form .l4, .item .customer__container .cutomer__add form .customer__add-form .l4, .item .customer__container .cutomer__add form .item__add-form .l4, .item .customer__container .item__add form .customer__add-form .l4, .item .customer__container .item__add form .item__add-form .l4, .item .item__container .cutomer__add form .customer__add-form .l4, .item .item__container .cutomer__add form .item__add-form .l4, .item .item__container .item__add form .customer__add-form .l4, .item .item__container .item__add form .item__add-form .l4 {
   margin-right: 1rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .i2 {
+.customer .customer__container .cutomer__add form .customer__add-form .i2, .customer .customer__container .cutomer__add form .item__add-form .i2, .customer .customer__container .item__add form .customer__add-form .i2, .customer .customer__container .item__add form .item__add-form .i2, .customer .item__container .cutomer__add form .customer__add-form .i2, .customer .item__container .cutomer__add form .item__add-form .i2, .customer .item__container .item__add form .customer__add-form .i2, .customer .item__container .item__add form .item__add-form .i2, .item .customer__container .cutomer__add form .customer__add-form .i2, .item .customer__container .cutomer__add form .item__add-form .i2, .item .customer__container .item__add form .customer__add-form .i2, .item .customer__container .item__add form .item__add-form .i2, .item .item__container .cutomer__add form .customer__add-form .i2, .item .item__container .cutomer__add form .item__add-form .i2, .item .item__container .item__add form .customer__add-form .i2, .item .item__container .item__add form .item__add-form .i2  {
   width: 20rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-form .i3 {
+.customer .customer__container .cutomer__add form .customer__add-form .i3, .customer .customer__container .cutomer__add form .item__add-form .i3, .customer .customer__container .item__add form .customer__add-form .i3, .customer .customer__container .item__add form .item__add-form .i3, .customer .item__container .cutomer__add form .customer__add-form .i3, .customer .item__container .cutomer__add form .item__add-form .i3, .customer .item__container .item__add form .customer__add-form .i3, .customer .item__container .item__add form .item__add-form .i3, .item .customer__container .cutomer__add form .customer__add-form .i3, .item .customer__container .cutomer__add form .item__add-form .i3, .item .customer__container .item__add form .customer__add-form .i3, .item .customer__container .item__add form .item__add-form .i3, .item .item__container .cutomer__add form .customer__add-form .i3, .item .item__container .cutomer__add form .item__add-form .i3, .item .item__container .item__add form .customer__add-form .i3, .item .item__container .item__add form .item__add-form .i3  {
   width: 15rem;
 }
+.customer .customer__container .cutomer__add form .customer__add-form .l1-i, .customer .customer__container .cutomer__add form .item__add-form .l1-i, .customer .customer__container .item__add form .customer__add-form .l1-i, .customer .customer__container .item__add form .item__add-form .l1-i, .customer .item__container .cutomer__add form .customer__add-form .l1-i, .customer .item__container .cutomer__add form .item__add-form .l1-i, .customer .item__container .item__add form .customer__add-form .l1-i, .customer .item__container .item__add form .item__add-form .l1-i, .item .customer__container .cutomer__add form .customer__add-form .l1-i, .item .customer__container .cutomer__add form .item__add-form .l1-i, .item .customer__container .item__add form .customer__add-form .l1-i, .item .customer__container .item__add form .item__add-form .l1-i, .item .item__container .cutomer__add form .customer__add-form .l1-i, .item .item__container .cutomer__add form .item__add-form .l1-i, .item .item__container .item__add form .customer__add-form .l1-i, .item .item__container .item__add form .item__add-form .l1-i {
+  margin-right: 2rem;
+}
 
-.customer .customer__container .cutomer__add form .customer__add-button {
+.customer .customer__container .cutomer__add form .customer__add-form .l2-i, .customer .customer__container .cutomer__add form .item__add-form .l2-i, .customer .customer__container .item__add form .customer__add-form .l2-i, .customer .customer__container .item__add form .item__add-form .l2-i, .customer .item__container .cutomer__add form .customer__add-form .l2-i, .customer .item__container .cutomer__add form .item__add-form .l2-i, .customer .item__container .item__add form .customer__add-form .l2-i, .customer .item__container .item__add form .item__add-form .l2-i, .item .customer__container .cutomer__add form .customer__add-form .l2-i, .item .customer__container .cutomer__add form .item__add-form .l2-i, .item .customer__container .item__add form .customer__add-form .l2-i, .item .customer__container .item__add form .item__add-form .l2-i, .item .item__container .cutomer__add form .customer__add-form .l2-i, .item .item__container .cutomer__add form .item__add-form .l2-i, .item .item__container .item__add form .customer__add-form .l2-i, .item .item__container .item__add form .item__add-form .l2-i {
+  margin-right: 1.5rem;
+}
+
+.customer .customer__container .cutomer__add form .customer__add-form .l3-i, .customer .customer__container .cutomer__add form .item__add-form .l3-i, .customer .customer__container .item__add form .customer__add-form .l3-i, .customer .customer__container .item__add form .item__add-form .l3-i, .customer .item__container .cutomer__add form .customer__add-form .l3-i, .customer .item__container .cutomer__add form .item__add-form .l3-i, .customer .item__container .item__add form .customer__add-form .l3-i, .customer .item__container .item__add form .item__add-form .l3-i, .item .customer__container .cutomer__add form .customer__add-form .l3-i, .item .customer__container .cutomer__add form .item__add-form .l3-i, .item .customer__container .item__add form .customer__add-form .l3-i, .item .customer__container .item__add form .item__add-form .l3-i, .item .item__container .cutomer__add form .customer__add-form .l3-i, .item .item__container .cutomer__add form .item__add-form .l3-i, .item .item__container .item__add form .customer__add-form .l3-i, .item .item__container .item__add form .item__add-form .l3-i {
+  margin-right: .4rem;
+}
+
+.customer .customer__container .cutomer__add form .customer__add-form .l4-i, .customer .customer__container .cutomer__add form .item__add-form .l4-i, .customer .customer__container .item__add form .customer__add-form .l4-i, .customer .customer__container .item__add form .item__add-form .l4-i, .customer .item__container .cutomer__add form .customer__add-form .l4-i, .customer .item__container .cutomer__add form .item__add-form .l4-i, .customer .item__container .item__add form .customer__add-form .l4-i, .customer .item__container .item__add form .item__add-form .l4-i, .item .customer__container .cutomer__add form .customer__add-form .l4-i, .item .customer__container .cutomer__add form .item__add-form .l4-i, .item .customer__container .item__add form .customer__add-form .l4-i, .item .customer__container .item__add form .item__add-form .l4-i, .item .item__container .cutomer__add form .customer__add-form .l4-i, .item .item__container .cutomer__add form .item__add-form .l4-i, .item .item__container .item__add form .customer__add-form .l4-i, .item .item__container .item__add form .item__add-form .l4-i {
+  margin-right: 4.7rem;
+}
+.customer .customer__container .cutomer__add form .customer__add-button, .customer .customer__container .cutomer__add form .item__add-button, .customer .customer__container .item__add form .customer__add-button, .customer .customer__container .item__add form .item__add-button, .customer .item__container .cutomer__add form .customer__add-button, .customer .item__container .cutomer__add form .item__add-button, .customer .item__container .item__add form .customer__add-button, .customer .item__container .item__add form .item__add-button, .item .customer__container .cutomer__add form .customer__add-button, .item .customer__container .cutomer__add form .item__add-button, .item .customer__container .item__add form .customer__add-button, .item .customer__container .item__add form .item__add-button, .item .item__container .cutomer__add form .customer__add-button, .item .item__container .cutomer__add form .item__add-button, .item .item__container .item__add form .customer__add-button, .item .item__container .item__add form .item__add-button {
   position: relative;
   left: -13rem;
   display: -webkit-box;
@@ -349,7 +363,7 @@
   justify-content: end;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-button button {
+.customer .customer__container .cutomer__add form .customer__add-button button, .customer .customer__container .cutomer__add form .item__add-button button, .customer .customer__container .item__add form .customer__add-button button, .customer .customer__container .item__add form .item__add-button button, .customer .item__container .cutomer__add form .customer__add-button button, .customer .item__container .cutomer__add form .item__add-button button, .customer .item__container .item__add form .customer__add-button button, .customer .item__container .item__add form .item__add-button button, .item .customer__container .cutomer__add form .customer__add-button button, .item .customer__container .cutomer__add form .item__add-button button, .item .customer__container .item__add form .customer__add-button button, .item .customer__container .item__add form .item__add-button button, .item .item__container .cutomer__add form .customer__add-button button, .item .item__container .cutomer__add form .item__add-button button, .item .item__container .item__add form .customer__add-button button, .item .item__container .item__add form .item__add-button button {
   font-size: 1.2rem;
   padding: .5rem .5rem;
   border: none;
@@ -359,22 +373,26 @@
   box-shadow: 0px 10px 10px var(--color-grey-1);
   cursor: pointer;
   height: 2.5rem;
+
 }
 
-.customer .customer__container .cutomer__add form .customer__add-button button[type="reset"] {
+.customer .customer__container .cutomer__add form .customer__add-button button[type="reset"], .customer .customer__container .cutomer__add form .item__add-button button[type="reset"], .customer .customer__container .item__add form .customer__add-button button[type="reset"], .customer .customer__container .item__add form .item__add-button button[type="reset"], .customer .item__container .cutomer__add form .customer__add-button button[type="reset"], .customer .item__container .cutomer__add form .item__add-button button[type="reset"], .customer .item__container .item__add form .customer__add-button button[type="reset"], .customer .item__container .item__add form .item__add-button button[type="reset"], .item .customer__container .cutomer__add form .customer__add-button button[type="reset"], .item .customer__container .cutomer__add form .item__add-button button[type="reset"], .item .customer__container .item__add form .customer__add-button button[type="reset"], .item .customer__container .item__add form .item__add-button button[type="reset"], .item .item__container .cutomer__add form .customer__add-button button[type="reset"], .item .item__container .cutomer__add form .item__add-button button[type="reset"], .item .item__container .item__add form .customer__add-button button[type="reset"], .item .item__container .item__add form .item__add-button button[type="reset"] {
   margin-right: 3rem;
   background-color: var(--color-red);
   color: var(--color-primary);
   width: 5rem;
 }
 
-.customer .customer__container .cutomer__add form .customer__add-button button[type="button"] {
+.customer .customer__container .cutomer__add form .customer__add-button button[type="button"], .customer .customer__container .cutomer__add form .item__add-button button[type="button"], .customer .customer__container .item__add form .customer__add-button button[type="button"], .customer .customer__container .item__add form .item__add-button button[type="button"], .customer .item__container .cutomer__add form .customer__add-button button[type="button"], .customer .item__container .cutomer__add form .item__add-button button[type="button"], .customer .item__container .item__add form .customer__add-button button[type="button"], .customer .item__container .item__add form .item__add-button button[type="button"], .item .customer__container .cutomer__add form .customer__add-button button[type="button"], .item .customer__container .cutomer__add form .item__add-button button[type="button"], .item .customer__container .item__add form .customer__add-button button[type="button"], .item .customer__container .item__add form .item__add-button button[type="button"], .item .item__container .cutomer__add form .customer__add-button button[type="button"], .item .item__container .cutomer__add form .item__add-button button[type="button"], .item .item__container .item__add form .customer__add-button button[type="button"], .item .item__container .item__add form .item__add-button button[type="button"]  {
   width: 10rem;
   background-color: var(--color-blue);
   color: var(--color-primary);
 }
+/*.customer .customer__container .cutomer__add form .item__add-button, .customer .customer__container .item__add form .item__add-button, .customer .item__container .cutomer__add form .item__add-button, .customer .item__container .item__add form .item__add-button, .item .customer__container .cutomer__add form .item__add-button, .item .customer__container .item__add form .item__add-button, .item .item__container .cutomer__add form .item__add-button, .item .item__container .item__add form .item__add-button {
+  left: 10rem;
+}*/
 
-.customer .customer__container .customer_view {
+.customer .customer__container .customer_view, .customer .customer__container .item_view, .customer .item__container .customer_view, .customer .item__container .item_view, .item .customer__container .customer_view, .item .customer__container .item_view, .item .item__container .customer_view, .item .item__container .item_view {
   position: relative;
   width: 100%;
   display: -webkit-box;
@@ -384,32 +402,32 @@
   margin-top: 2rem;
 }
 
-.customer .customer__container .customer_view table {
+.customer .customer__container .customer_view table, .customer .customer__container .item_view table, .customer .item__container .customer_view table, .customer .item__container .item_view table, .item .customer__container .customer_view table, .item .customer__container .item_view table, .item .item__container .customer_view table, .item .item__container .item_view table {
   position: relative;
   width: 100%;
   border: 1px solid var(--color-secondry);
   border-collapse: collapse;
 }
 
-.customer .customer__container .customer_view table thead th {
+.customer .customer__container .customer_view table thead th, .customer .customer__container .item_view table thead th, .customer .item__container .customer_view table thead th, .customer .item__container .item_view table thead th, .item .customer__container .customer_view table thead th, .item .customer__container .item_view table thead th, .item .item__container .customer_view table thead th, .item .item__container .item_view table thead th {
   border: 1px solid var(--color-secondry);
   border-collapse: collapse;
   padding: 10px 10px;
   width: 250px;
 }
 
-.customer .customer__container .customer_view table tbody td {
+.customer .customer__container .customer_view table tbody td, .customer .customer__container .item_view table tbody td, .customer .item__container .customer_view table tbody td, .customer .item__container .item_view table tbody td, .item .customer__container .customer_view table tbody td, .item .customer__container .item_view table tbody td, .item .item__container .customer_view table tbody td, .item .item__container .item_view table tbody td {
   border: 1px solid var(--color-secondry);
   border-collapse: collapse;
   padding: 10px 10px;
   width: 250px;
 }
 
-.customer .customer__container .customer_view table tr {
+.customer .customer__container .customer_view table tr , .customer .customer__container .item_view table tr, .customer .item__container .customer_view table tr, .customer .item__container .item_view table tr, .item .customer__container .customer_view table tr, .item .customer__container .item_view table tr, .item .item__container .customer_view table tr, .item .item__container .item_view table tr{
   cursor: pointer;
 }
 
-.customer__update-delete {
+.customer__update-delete, .item__update-delete{
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -434,39 +452,39 @@
   z-index: 100;
 }
 
-.customer__update-delete i {
+.customer__update-delete i, .item__update-delete i  {
   font-size: 2rem;
   position: relative;
   left: 420px;
   cursor: pointer;
 }
 
-.customer__update-delete i:hover {
+.customer__update-delete i:hover, .item__update-delete i:hover {
   color: var(--color-red);
 }
 
-.customer__update-delete h3 {
+.customer__update-delete h3 , .item__update-delete h3 {
   position: relative;
   left: 50px;
   font-size: 1.5rem;
   margin-bottom: 1.2rem;
 }
 
-.customer__update-delete form {
+.customer__update-delete form , .item__update-delete form{
   position: relative;
 }
 
-.customer__update-delete form .customer__update-form {
+.customer__update-delete form .customer__update-form, .customer__update-delete form .item__update-form, .item__update-delete form .customer__update-form, .item__update-delete form .item__update-form {
   position: relative;
   margin: 1rem 1rem;
   margin-bottom: 3rem;
 }
 
-.customer__update-delete form .customer__update-form .customer__update-form-label {
+.customer__update-delete form .customer__update-form .customer__update-form-label, .customer__update-delete form .customer__update-form .item__update-form-label, .customer__update-delete form .item__update-form .customer__update-form-label, .customer__update-delete form .item__update-form .item__update-form-label, .item__update-delete form .customer__update-form .customer__update-form-label, .item__update-delete form .customer__update-form .item__update-form-label, .item__update-delete form .item__update-form .customer__update-form-label, .item__update-delete form .item__update-form .item__update-form-label {
   font-size: 1.2rem;
 }
 
-.customer__update-delete form .customer__update-form .customer__update-form-input {
+.customer__update-delete form .customer__update-form .customer__update-form-input, .customer__update-delete form .customer__update-form .item__update-form-input, .customer__update-delete form .item__update-form .customer__update-form-input, .customer__update-delete form .item__update-form .item__update-form-input, .item__update-delete form .customer__update-form .customer__update-form-input, .item__update-delete form .customer__update-form .item__update-form-input, .item__update-delete form .item__update-form .customer__update-form-input, .item__update-delete form .item__update-form .item__update-form-input {
   outline: none;
   border: 1.5px solid var(--color-grey-1);
   padding-left: 1rem;
@@ -474,19 +492,31 @@
   height: 2rem;
 }
 
-.customer__update-delete form .customer__update-form .l1 {
+.customer__update-delete form .customer__update-form .l1, .customer__update-delete form .item__update-form .l1, .item__update-delete form .customer__update-form .l1, .item__update-delete form .item__update-form .l1 {
   margin-left: 2.3rem;
 }
 
-.customer__update-delete form .customer__update-form .l2 {
+.customer__update-delete form .customer__update-form .l2 , .customer__update-delete form .item__update-form .l2, .item__update-delete form .customer__update-form .l2, .item__update-delete form .item__update-form .l2 {
   margin-left: 1.2rem;
 }
 
-.customer__update-delete form .customer__update-form .l4 {
+.customer__update-delete form .customer__update-form .l4 , .customer__update-delete form .item__update-form .l4, .item__update-delete form .customer__update-form .l4, .item__update-delete form .item__update-form .l4{
   margin-left: .5rem;
 }
+.customer__update-delete form .customer__update-form .l1-i, .customer__update-delete form .item__update-form .l1-i, .item__update-delete form .customer__update-form .l1-i, .item__update-delete form .item__update-form .l1-i {
+  margin-right: 1.5rem;
+}
 
-.customer__update-delete form .customer__update-button {
+.customer__update-delete form .customer__update-form .l2-i, .customer__update-delete form .item__update-form .l2-i, .item__update-delete form .customer__update-form .l2-i, .item__update-delete form .item__update-form .l2-i {
+  margin-right: 1rem;
+}
+
+.customer__update-delete form .customer__update-form .l4-i, .customer__update-delete form .item__update-form .l4-i, .item__update-delete form .customer__update-form .l4-i, .item__update-delete form .item__update-form .l4-i {
+  margin-right: 4.5rem;
+}
+
+
+.customer__update-delete form .customer__update-button , .customer__update-delete form .item__update-button, .item__update-delete form .customer__update-button, .item__update-delete form .item__update-button{
   position: relative;
   width: 90%;
   left: 30px;
@@ -498,7 +528,7 @@
   justify-content: end;
 }
 
-.customer__update-delete form .customer__update-button button {
+.customer__update-delete form .customer__update-button button, .customer__update-delete form .item__update-button button, .item__update-delete form .customer__update-button button, .item__update-delete form .item__update-button button {
   font-size: 1.2rem;
   padding: .5rem .5rem;
   border: none;
@@ -510,14 +540,14 @@
   height: 2.5rem;
 }
 
-.customer__update-delete form .customer__update-button button[type="reset"] {
+.customer__update-delete form .customer__update-button button[type="reset"], .customer__update-delete form .item__update-button button[type="reset"], .item__update-delete form .customer__update-button button[type="reset"], .item__update-delete form .item__update-button button[type="reset"] {
   margin-right: 3rem;
   background-color: var(--color-red);
   color: var(--color-primary);
   width: 5rem;
 }
 
-.customer__update-delete form .customer__update-button button[type="button"] {
+.customer__update-delete form .customer__update-button button[type="button"] , .customer__update-delete form .item__update-button button[type="button"], .item__update-delete form .customer__update-button button[type="button"], .item__update-delete form .item__update-button button[type="button"]{
   width: 6rem;
   background-color: var(--color-blue);
   color: var(--color-primary);

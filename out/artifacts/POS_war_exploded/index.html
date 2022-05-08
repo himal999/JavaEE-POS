@@ -51,9 +51,9 @@
                              <span>Items</span>
                              <i class='bx bx-chevron-down nav__sub-down-icon' id="nav_item"></i>
                              <ul id="navItem">
-                                <li><a>Add Item</a></li>
+                                <li id="add-item"><a>Add Item</a></li>
     
-                                <li><a>View/Action Items</a></li>
+                                <li id="view-item"><a>View/Action Items</a></li>
                              </ul>
                         </div>
                      </div>
@@ -165,7 +165,204 @@
     </div>
      <!--CUSTOMER UPDATE END-->
    <!--CUSTOMER END-->
-   <div class="item"></div>
+
+
+
+
+    <!--ITEM START-->
+    <div class="item">
+        <div class="item__container">
+            <h2>Item management</h2>
+
+            <div class="item__navigation-container">
+                <h3 id="process-title-item">Add New Item</h3>
+                <span id="process-title-nav-item" >item/addNewitem</span>
+            </div>
+            <!--ITEM ADD START-->
+            <div class="item__add">
+                <form>
+                    <div class="item__add-form">
+                        <label class="item__add-form-label l1-i">Item Code :</label>
+                        <input class="item__add-form-input" id="txtItemId" type="text" placeholder="e.g:991790381v">
+                    </div>
+                    <div class="item__add-form">
+                        <label class="item__add-form-label l2-i">Item Name :</label>
+                        <input class="item__add-form-input i2" id="txtItemName" type="text" placeholder="e.g:Nimal Perera">
+                    </div>
+                    <div class="item__add-form">
+                        <label  class="item__add-form-label l3-i">Unit Price($) :</label>
+                        <input class="item__add-form-input "id="txtItemUnitPrice" type="text" placeholder="e.g:Colombo">
+                    </div>
+                    <div class="item__add-form">
+                        <label  class="item__add-form-label l4-i">Stock :</label>
+                        <input  class="item__add-form-input "id="txtItemrStock" type="text" placeholder="e.g:0718925966">
+                    </div>
+                    <div class="item__add-button">
+                        <button type="reset">Clear</button>
+                        <button type="button">Add Item</button>
+                    </div>
+                </form>
+            </div>
+            <!--ITEM ADD END-->
+            <!--ITEM VIEW START-->
+            <div class="item_view">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Unit Price($)</th>
+                        <th>Stock</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>991790381V</td>
+                        <td>Nimal</td>
+                        <td>Colombo</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>
+                            <div style="display: flex;justify-content: center; align-items: center;font-size: 1.5rem;">
+                                <i class='bx bx-pencil' style="margin-right: 1.5rem;"></i>
+                                <i class='bx bx-trash' style="margin-left: 1.5rem;"></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>991790381V</td>
+                        <td>Nimal Perera Bandara</td>
+                        <td>Colombo panaduras</td>
+                        <td>0718925966</td>
+                        <td>Delete,Update</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!--ITEM VIEW END-->
+            </div>
+    </div>
+    <!--ITEM UPDATE START-->
+    <div class="item__update-delete">
+        <i class='bx bx-x' id="item-update-delete-close" ></i>
+        <h3 id="item-update-delete-title">Update Item Details</h3>
+        <form>
+            <div class="item__update-form">
+                <label class="item__update-form-label l1-i">Item Code :</label>
+                <input class="item__update-form-input " id="" type="text" placeholder="e.g:991790381v">
+            </div>
+            <div class="item__update-form">
+                <label class="item__update-form-label l2-i ">Item Name :</label>
+                <input class="item__update-form-input" id="" type="text" placeholder="e.g:Nimal Perera">
+            </div>
+            <div class="item__update-form">
+                <label  class="item__update-form-label ">Unit Price($) :</label>
+                <input class="item__update-form-input "id="" type="text" placeholder="e.g:Colombo">
+            </div>
+            <div class="item__update-form">
+                <label  class="item__update-form-label l4-i">Stock :</label>
+                <input  class="item__update-form-input "id="" type="text" placeholder="e.g:0718925966">
+            </div>
+            <div class="item__update-button">
+                <button type="reset">Clear</button>
+                <button type="button">Change</button>
+            </div>
+        </form>
+    </div>
+    <!--ITEM UPDATE END-->
+    <!--ITEM END-->
    <div class="place-order"></div>
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
    <script src="./script/script.js"></script>

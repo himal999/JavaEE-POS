@@ -69,7 +69,8 @@ $('body').ready(function(){
     // hide all content
    $('.customer').css('display','none');
    $('.customer__update-delete').css('display','none')
-   $('.item').css('display','none')
+   $('.item').css('display','none');
+   $('.item__update-delete').css('display','none')
    $('.place-order').css('display','none')
 
    //add customer click
@@ -79,11 +80,33 @@ $('body').ready(function(){
     clearAllFields();   
     $('.customer_view').css('display','none')
     $('.customer__update-delete').css('display','none')
+
+    $('.item').css('display','none')
+    $('.item__update-delete').css('display','none')
+
     $('.customer').css('display','block');
     $('.cutomer__add').css('display','block')
 
+
+
     $('.customer').removeClass('body-blue');
    });
+
+   //add item click
+    $('#add-item').click(function () {
+        $('#process-title-item').text("Add New Item");
+        $('#process-title-nav-item').text("item/addnewitem");
+
+        $('.customer').css('display','none');
+        $('.customer__update-delete').css('display','none')
+
+        $('.item').css('display','block');
+        $('.item__add').css('display','block');
+        $('.item__update-delete').css('display','none');
+        $('.item_view').css('display','none');
+
+
+    })
 
    //view custimer click
 
