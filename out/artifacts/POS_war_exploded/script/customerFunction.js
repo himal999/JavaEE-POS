@@ -1,12 +1,12 @@
  const  loadAllCustomers = function (resp) {
 
     $("#customerTbl").empty();
-    $("#customerTbl").off();
+    $("#customerTbl>tr").off();
 
     var customer = new Customer();
     var count = 0;
 
-       const action  = `<div style="display: flex;justify-content: center; align-items: center;font-size: 1.5rem;">
+    const action  = `<div style="display: flex;justify-content: center; align-items: center;font-size: 1.5rem;">
                                 <i class='bx bx-pencil customerUpdateBtn' style="margin-right: 1.5rem;" ></i>
                                 <i class='bx bx-trash customerDeleteBtn' style="margin-left: 1.5rem;"></i>
                            </div>`

@@ -12,9 +12,9 @@
   --color-grey-4:#adad85;
   --color-grey-5:#d3d3d3;
   --color-yellow:#ffff1a;
-  --color-blue: #697084;
+  --color-blue: #3385ff;
   --color-red: #ff4d4d;
-  --color-blue-1:#3385ff;
+/*  --color-blue-1:#3385ff;*/
 }
 
 .header {
@@ -436,8 +436,8 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: auto;
-  height: auto;
+  width: 467.383px;
+  height: 464.2px;
   left: 40vw;
   top: 26vh;
   -webkit-box-align: center;
@@ -554,9 +554,9 @@
 }
 
 .select-field {
-  border: 1px solid var(--color-blue-1) !important;
-  -webkit-box-shadow: 0px 0px 10px var(--color-blue-1) !important;
-  box-shadow: 0px 0px 10px var(--color-blue-1) !important;
+  border: 1px solid var(--color-blue) !important;
+  -webkit-box-shadow: 0px 0px 10px var(--color-blue) !important;
+  box-shadow: 0px 0px 10px var(--color-blue) !important;
 }
 
 .sliderIn {
@@ -616,9 +616,6 @@
 .body-blue {
   -webkit-filter: blur(9px);
   filter: blur(9px);
-  opacity: 4px;
-  position: fixed;
-  z-index: 99;
 }
 
 .hover{

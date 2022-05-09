@@ -106,6 +106,22 @@ $('body').ready(function(){
         $('.item_view').css('display','none');
 
 
+    });
+
+    //item view click
+
+    $('#view-item').click(function () {
+        $('#process-title-item').text("View All Items");
+        $('#process-title-nav-item').text("item/viewallitems");
+
+        $('.customer').css('display','none');
+        $('.customer__update-delete').css('display','none')
+
+        $('.item').css('display','block');
+        $('.item_view').css('display','block');
+        $('.item__add').css('display','none');
+        $('.item__update-delete').css('display','none');
+
     })
 
    //view custimer click
@@ -141,6 +157,10 @@ function clearAllFields(){
 $('#customer-update-delete-close').click(()=>{
     $('.customer').removeClass('body-blue');
     $('.customer__update-delete').css('display','none')
+})
+$('#item-update-delete-close').click(()=>{
+    $('.item').removeClass('body-blue');
+    $('.item__update-delete').css('display','none')
 })
 
 //

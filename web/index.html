@@ -199,7 +199,7 @@
                     </div>
                     <div class="item__add-button">
                         <button type="reset">Clear</button>
-                        <button type="button">Add Item</button>
+                        <button type="button" id="itemAddBtn">Add Item</button>
                     </div>
                 </form>
             </div>
@@ -217,116 +217,8 @@
                         <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>991790381V</td>
-                        <td>Nimal</td>
-                        <td>Colombo</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>
-                            <div style="display: flex;justify-content: center; align-items: center;font-size: 1.5rem;">
-                                <i class='bx bx-pencil' style="margin-right: 1.5rem;"></i>
-                                <i class='bx bx-trash' style="margin-left: 1.5rem;"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>991790381V</td>
-                        <td>Nimal Perera Bandara</td>
-                        <td>Colombo panaduras</td>
-                        <td>0718925966</td>
-                        <td>Delete,Update</td>
-                    </tr>
+                    <tbody id="itemTbl">
+
                     </tbody>
 
                 </table>
@@ -341,23 +233,23 @@
         <form>
             <div class="item__update-form">
                 <label class="item__update-form-label l1-i">Item Code :</label>
-                <input class="item__update-form-input " id="" type="text" placeholder="e.g:991790381v">
+                <input class="item__update-form-input " id="txtItemUpdateId" type="text" placeholder="e.g:991790381v" name="txtItemUpdateId">
             </div>
             <div class="item__update-form">
                 <label class="item__update-form-label l2-i ">Item Name :</label>
-                <input class="item__update-form-input" id="" type="text" placeholder="e.g:Nimal Perera">
+                <input class="item__update-form-input" id="txtItemUpdateName" type="text" placeholder="e.g:Nimal Perera" name="txtItemUpdateName">
             </div>
             <div class="item__update-form">
                 <label  class="item__update-form-label ">Unit Price($) :</label>
-                <input class="item__update-form-input "id="" type="text" placeholder="e.g:Colombo">
+                <input class="item__update-form-input "id="txtItemUpdateUnitPrice" type="text" placeholder="e.g:Colombo" name="txtItemUpdateUnitPrice">
             </div>
             <div class="item__update-form">
                 <label  class="item__update-form-label l4-i">Stock :</label>
-                <input  class="item__update-form-input "id="" type="text" placeholder="e.g:0718925966">
+                <input  class="item__update-form-input "id="txtItemUpdateStock" type="text" placeholder="e.g:0718925966" name="txtItemUpdateStock">
             </div>
             <div class="item__update-button">
                 <button type="reset">Clear</button>
-                <button type="button">Change</button>
+                <button type="button" id="updateItemBtn">Change</button>
             </div>
         </form>
     </div>
@@ -366,8 +258,11 @@
    <div class="place-order"></div>
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
    <script src="./script/script.js"></script>
-    <script src="./script/ajax.js"></script>
+    <script src="script/customerAJAX.js"></script>
+    <script src="script/itemAJAX.js"></script>
     <script src="./model/customer.js"></script>
+    <script src="./model/item.js"></script>
     <script src="./script/customerFunction.js"></script>
+    <script src="./script/itemFunction.js"></script>
 </body>
 </html>

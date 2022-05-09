@@ -1,6 +1,7 @@
 
 
 $("#view-customer").click(()=>{
+    $('.customer').removeClass('body-blue');
     $.ajax({
         url:"customer",
         method:"GET",
@@ -13,6 +14,7 @@ $("#view-customer").click(()=>{
 });
 
 $('#addCustomerBtn').click(function () {
+    $('.customer').removeClass('body-blue');
    var data =  $('#customerAddForm').serialize();
     $.ajax({
         url:"customer",
