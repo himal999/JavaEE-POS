@@ -37,3 +37,21 @@ $('#updateItemBtn').click(function () {
         }
     });
 });
+
+function deleteItem(itemCode) {
+    $.ajax({
+        url:"item?itemCode="+itemCode,
+        method:"DELETE",
+        success:function (resp) {
+            $.ajax({
+                url:"item",
+                method:"GET",
+                success:function (resp) {
+                    loadAllItems(resp);
+
+                }
+            });
+        }
+
+    })
+}

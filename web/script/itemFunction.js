@@ -37,8 +37,11 @@ const loadAllItems = function (resp) {
 
         $("#itemTbl").on('click','.itemUpdateBtn',function () {
                 itemUpdate($(this).closest('tr'));
-        })
+        });
 
+        $('#itemTbl').on('click','.itemDeleteBtn',function () {
+               itemDelete($(this).closest('tr'))
+        });
     }
 }
 
@@ -52,4 +55,13 @@ function itemUpdate(currentRow) {
     $('#txtItemUpdateName').val(currentRow.find("td:eq(2)").text())
     $('#txtItemUpdateUnitPrice').val(currentRow.find("td:eq(3)").text())
     $('#txtItemUpdateStock').val(currentRow.find("td:eq(4)").text())
+}
+
+const itemDelete = function (currentRow) {
+    var selected =  confirm(`Are you sure drop ${currentRow.find("td:eq(1)").text()} ${currentRow.find("td:eq(2)").text()} Item ?`);
+
+    if(selected){
+        deleteItem(currentRow.find("td:eq(1)").text());
+        return;
+    }
 }

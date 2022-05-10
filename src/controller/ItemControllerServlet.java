@@ -82,4 +82,28 @@ public class ItemControllerServlet extends HttpServlet {
         }
 
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        try {
+            PreparedStatement pst = Db.db().getConnection().prepareStatement("DELETE FROM `item` WHERE itemCode=?");
+            pst.setString(1,req.getParameter("itemCode"));
+
+            PrintWriter writer = resp.getWriter();
+
+
+            if(pst.executeUpdate()>0){
+                writer.write("success");
+            }else{
+                writer.write("try again");
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

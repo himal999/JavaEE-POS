@@ -89,7 +89,8 @@ $('body').ready(function(){
 
 
 
-    $('.customer').removeClass('body-blue');
+     $('.customer').removeClass('body-blue');
+     $('.item').removeClass('body-blue');
    });
 
    //add item click
@@ -105,7 +106,8 @@ $('body').ready(function(){
         $('.item__update-delete').css('display','none');
         $('.item_view').css('display','none');
 
-
+        $('.customer').removeClass('body-blue');
+        $('.item').removeClass('body-blue');
     });
 
     //item view click
@@ -122,6 +124,9 @@ $('body').ready(function(){
         $('.item__add').css('display','none');
         $('.item__update-delete').css('display','none');
 
+        $('.customer').removeClass('body-blue');
+        $('.item').removeClass('body-blue');
+
     })
 
    //view custimer click
@@ -134,7 +139,11 @@ $('body').ready(function(){
        $('.customer').css('display','block');
        $('.customer_view').css('display','block')
 
+       $('.item').css('display','none');
+       $('.item__update-delete').css('display','none');
+
        $('.customer').removeClass('body-blue');
+       $('.item').removeClass('body-blue');
    });
 
 
