@@ -84,6 +84,8 @@ $('body').ready(function(){
     $('.item').css('display','none')
     $('.item__update-delete').css('display','none')
 
+    $('.place-order').css('display','none')
+
     $('.customer').css('display','block');
     $('.cutomer__add').css('display','block')
 
@@ -106,6 +108,8 @@ $('body').ready(function(){
         $('.item__update-delete').css('display','none');
         $('.item_view').css('display','none');
 
+        $('.place-order').css('display','none')
+
         $('.customer').removeClass('body-blue');
         $('.item').removeClass('body-blue');
     });
@@ -124,6 +128,8 @@ $('body').ready(function(){
         $('.item__add').css('display','none');
         $('.item__update-delete').css('display','none');
 
+        $('.place-order').css('display','none')
+
         $('.customer').removeClass('body-blue');
         $('.item').removeClass('body-blue');
 
@@ -141,6 +147,8 @@ $('body').ready(function(){
 
        $('.item').css('display','none');
        $('.item__update-delete').css('display','none');
+
+       $('.place-order').css('display','none')
 
        $('.customer').removeClass('body-blue');
        $('.item').removeClass('body-blue');
@@ -172,7 +180,30 @@ $('#item-update-delete-close').click(()=>{
     $('.item__update-delete').css('display','none')
 })
 
-//
+// PLACE ORDER
+
+$('#place-order').click(function () {
+
+    $('.customer__update-delete').css('display','none')
+    $('.customer').css('display','none');
+
+
+    $('.item').css('display','none');
+    $('.item__update-delete').css('display','none');
+
+    $('.place-order').css('display','block');
+    $('#customer-list').css('display','none');
+
+    $('.customer').removeClass('body-blue');
+    $('.item').removeClass('body-blue');
+});
+
+$('#placeOrderCustomer').click(function () {
+    loadAllItemFromOrders();
+    $('#item-list').toggle();
+})
+
+
 
 
 

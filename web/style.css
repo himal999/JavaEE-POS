@@ -586,7 +586,7 @@
   display: flex;
   width: 100%;
   height: 5vh;
-  background-color: var(--color-blue-1);
+  background-color: var(--color-blue);
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -776,8 +776,8 @@
 .place-order .place-order-container .place-order-details-menu {
   position: absolute;
   top: 6rem;
-  left: 71.49rem;
-  width: 370px;
+  left: 73.49rem;
+  width: 353px;
   overflow: hidden;
   height: 71vh;
   background-color: var(--color-grey-3);
@@ -827,7 +827,7 @@
   margin-top: 2rem;
   width: 100%;
   height: auto;
-  left: 130px;
+  left: 118px;
   overflow: hidden;
 }
 
@@ -849,6 +849,16 @@
 
 .place-order .place-order-container .place-order-details-menu .place-order-btn #place-order-btn-ok {
   background-color: var(--color-blue);
+}
+
+#item-list{
+  background-color: var(--color-grey-4);
+  position: absolute;
+  top: 29px;
+  left: 0px;
+  width: 211px;
+  overflow: auto;
+  z-index: 100;
 }
 
 
