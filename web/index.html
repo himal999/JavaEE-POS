@@ -180,22 +180,22 @@
             </div>
             <!--ITEM ADD START-->
             <div class="item__add">
-                <form>
+                <form id="item-add">
                     <div class="item__add-form">
                         <label class="item__add-form-label l1-i">Item Code :</label>
-                        <input class="item__add-form-input" id="txtItemId" type="text" placeholder="e.g:991790381v">
+                        <input class="item__add-form-input" id="txtItemId" type="text" placeholder="e.g:991790381v" name="txtItemAddId">
                     </div>
                     <div class="item__add-form">
                         <label class="item__add-form-label l2-i">Item Name :</label>
-                        <input class="item__add-form-input i2" id="txtItemName" type="text" placeholder="e.g:Nimal Perera">
+                        <input class="item__add-form-input i2" id="txtItemName" type="text" placeholder="e.g:Nimal Perera" name="txtItemAddName">
                     </div>
                     <div class="item__add-form">
                         <label  class="item__add-form-label l3-i">Unit Price($) :</label>
-                        <input class="item__add-form-input "id="txtItemUnitPrice" type="text" placeholder="e.g:Colombo">
+                        <input class="item__add-form-input "id="txtItemUnitPrice" type="text" placeholder="e.g:Colombo"name="txtItemAddUnitPrice">
                     </div>
                     <div class="item__add-form">
                         <label  class="item__add-form-label l4-i">Stock :</label>
-                        <input  class="item__add-form-input "id="txtItemrStock" type="text" placeholder="e.g:0718925966">
+                        <input  class="item__add-form-input "id="txtItemStock" type="text" placeholder="e.g:0718925966"name="txtItemAddStock">
                     </div>
                     <div class="item__add-button">
                         <button type="reset">Clear</button>
@@ -255,7 +255,11 @@
     </div>
     <!--ITEM UPDATE END-->
     <!--ITEM END-->
-   <div class="place-order"></div>
+   <div class="place-order">
+       <div class="place-order-container">
+           <div></div>
+       </div>
+   </div>
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
    <script src="./script/script.js"></script>
     <script src="script/customerAJAX.js"></script>

@@ -51,6 +51,32 @@ public class ItemControllerServlet extends HttpServlet {
     }
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Item item = new Item(req.getParameter("txtItemAddId"),req.getParameter("txtItemAddName"),Double.parseDouble(req.getParameter("txtItemAddUnitPrice")),Integer.parseInt(req.getParameter("txtItemAddStock")));
+
+
+        try {
+            PreparedStatement pst = Db.db().getConnection().prepareStatement("INSERT INTO `item` VALUES (?,?,?,?)");
+            pst.setString(1,item.getItemCode());
+            pst.setString(2,item.getItemName());
+            pst.setDouble(3,item.getItemUnitPrice());
+            pst.setInt(4,item.getItemStock());
+
+            if(pst.executeUpdate()>0){
+
+            }else{
+
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 

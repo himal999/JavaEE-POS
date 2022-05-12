@@ -55,3 +55,21 @@ function deleteItem(itemCode) {
 
     })
 }
+
+$('#itemAddBtn').click(function () {
+    $.ajax({
+        url:"item",
+        method:"POST",
+        data:$("#item-add").serialize(),
+        success:function () {
+            $.ajax({
+                url:"item",
+                method:"GET",
+                success:function (resp) {
+                    loadAllItems(resp);
+
+                }
+            });
+        }
+    })
+})
