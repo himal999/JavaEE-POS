@@ -201,7 +201,14 @@ $('#place-order').click(function () {
 $('#placeOrderCustomer').click(function () {
     loadAllItemFromOrders();
     $('#item-list').toggle();
-})
+});
+
+$('#placeAddBtn').click(function () {
+    addTable();
+});
+
+4
+
 
 
 
