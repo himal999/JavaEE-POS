@@ -708,6 +708,8 @@
   position: absolute;
   left: 190px;
   top: 5px;
+  background: var(--color-grey-1);
+  cursor: pointer;
 }
 
 .place-order .place-order-container .place-order-details-container .place-order-details-container-item .place-order-items-btn {

@@ -1,6 +1,6 @@
-var count=1;
+var count=0;
 var itemsArray ;
-
+var total= 0 ;
 
 const placePageInit = function () {
     $('#placeAddBtn').attr('disabled','disabled')
@@ -98,14 +98,14 @@ const addTable = function () {
 
     let qty = `<div style="display: flex;position: relative;justify-content: center;font-size: 1.2rem;"><i class='bx bx-minus-circle  placeQtyDecremet' style="cursor: pointer" ></i><lable class="placeQty" style="margin-left: 1rem;margin-right: 1rem;width: 42px;display: flex;justify-content: center;">${$('#placeItemQty').val()}</lable><i class='bx bx-plus-circle placeQtyIncrement'style="cursor: pointer;"></i></div>`
 
-    let row = `<tr><td>${count++}</td><td>${$("#placeItemName").val()}</td><td>${$('#placeItemUnitPrice').val()}</td><td>${qty}</td></tr>`;
+    let row = `<tr><td>${++count}</td><td>${$("#placeItemName").val()}</td><td>${$('#placeItemUnitPrice').val()}</td><td>${qty}</td></tr>`;
 
     $('#placeTbl').append(row);
 
 
-
-
-
+    setNoOfItems();
+    setTotal();
+    setSubTotal();
 
 
     $("#placeTbl").on('click', '.placeQtyDecremet', function () {
@@ -121,6 +121,13 @@ const addTable = function () {
 
         if(currentQty==0){
             $(this).parent().parent().parent().remove();
+            count = 0;
+            $("#placeTbl>tr").each(function () {
+                $(this).find("td:eq(0)").text(++count);
+            });
+            setNoOfItems();
+            setTotal();
+            setSubTotal();
         }
 
     });
@@ -162,4 +169,34 @@ function checkValidQty() {
         $('#placeResetBtn').removeAttr('disabled');
         $('#placeItemQtyValidation').css('display','block');
     }
+}
+function setNoOfItems(){
+
+    $("#placeNoOfItems").text($('#placeTbl>tr').length);
+}
+
+function setTotal() {
+    var tempTotal = 0.00;
+    $("#placeTbl>tr").each(function () {
+            var unPrice = parseFloat($(this).find('td:eq(2)').text());
+            var qty = parseFloat($(this).find(".placeQty").text());
+        tempTotal += +unPrice * +qty;
+    });
+
+    $("#placeTotalBalance").text(tempTotal);
+    total = tempTotal;
+}
+
+function setSubTotal() {
+    var discount = $("#placeDisscount").val();
+    var subTotal = total - (total*discount/100);
+
+    if(subTotal>0){
+        $("#placeSubTotal").text(subTotal);
+    }else{
+        $("#placeSubTotal").text(0.00);
+    }
+
+
+
 }

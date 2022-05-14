@@ -216,6 +216,9 @@ $('#placeResetBtn').click(function () {
 $("#placeItemQty").on('keyup',function () {
         checkValidQty();
 })
+$("#placeDisscount").on("keyup",function () {
+       setSubTotal();
+});
 
 
 
