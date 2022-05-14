@@ -17,3 +17,13 @@ function loadAllCustomersName() {
         }
     })
 }
+
+function loadAllOrders() {
+    $.ajax({
+        url:"place_order",
+        method:"GET",
+        success:function (resp) {
+            getInvoiceNumber(resp)
+        }
+    })
+}

@@ -903,6 +903,12 @@ width: 61px;
 font-size: 10px;
 color: red;
 }
+#invoiceNo{
+  color: var(--color-red);
+  font-size: 1.2rem;
+  position: relative;
+  top: 0px;
+}
 
 .select-field {
   border: 1px solid var(--color-blue) !important;

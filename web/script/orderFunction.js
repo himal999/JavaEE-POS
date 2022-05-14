@@ -19,27 +19,32 @@ const placePageInit = function () {
     clearPlaceFields();
 
     loadAllCustomersName();
-
+    loadAllOrders();
     setDate();
     setInterval("setTime()",1000);
 
 
 
 }
-function getInvoiceNumber(){
-    if(order.length > 0){
-        let temp = order[order.length-1].getInvoiceNo();
+function getInvoiceNumber(order){
+    const orderId = new Array();
+    for (const temp of order){
+        orderId.push(temp.orderId);
 
-        temp+=1;
-        if(temp<9){
-            return temp;
-        }else if(temp<99){
-            return temp;
+    }
+    if(orderId.length > 0) {
+        let temp = orderId[orderId.length - 1];
+        temp = +temp + 1;
+        if(+temp<=9){
+            $("#invoiceNo").text(`I-00${temp}`);
+        }else if(+temp<=99){
+            $("#invoiceNo").text(`I-0${temp}`);
         }else{
-            return temp;
+            $("#invoiceNo").text(`I-${temp}`);
         }
+
     }else{
-        return 1;
+        $("#invoiceNo").text("I-001");
 
     }
 }
