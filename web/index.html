@@ -262,17 +262,15 @@
             <div class="place-order-main-menu">
                 <div class="place-order-main-menu-customer">
                     <p>Customer Name :</p>
-                    <select>
-                        <option>No=imal Perera sfdsfdsfdsgsdg</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select id="customerList">
+
                     </select>
                 </div>
                 <div class="place-order-main-menu-date">
-                    <p>Date</p>
+                    <p id="date">Date</p>
                 </div>
                 <div class="place-order-main-menu-time">
-                    <p>time</p>
+                    <p id="time">time</p>
                 </div>
             </div>
             <div class="place-order-details-container">
@@ -351,6 +349,7 @@
                     <div class="place-order-details-menu-summary-item">
                         <h3>Pay In($):</h3>
                         <input type="text" id="placePayIn"/>
+                        <lable id="payInValidation">Not Valid Payment</lable>
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>Pay Balance($):</h3>

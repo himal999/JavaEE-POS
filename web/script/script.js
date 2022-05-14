@@ -220,6 +220,16 @@ $("#placeDisscount").on("keyup",function () {
        setSubTotal();
 });
 
+$('#placePayIn').on("keyup",function () {
+    setPayBalance();
+})
+
+$('#place-order-btn-cancel').click(function () {
+    clearPlaceFields();
+    $("#placeTbl>tr").empty();
+});
+
+
 
 
 

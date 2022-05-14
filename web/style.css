@@ -816,6 +816,8 @@
   position: relative;
   top: 3px;
   font-weight: 600;
+  width: 139px;
+  overflow: hidden;
 }
 
 .place-order .place-order-container .place-order-details-menu .place-order-details-menu-summary-item input {
@@ -891,6 +893,15 @@
   width: 160px;
   color: red;
   font-size: 12px;
+}
+#payInValidation{
+position: relative;
+display: flex;
+top: 40px;
+left: -162px;
+width: 61px;
+font-size: 10px;
+color: red;
 }
 
 .select-field {

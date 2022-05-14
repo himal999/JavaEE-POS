@@ -7,3 +7,13 @@ function loadAllItemFromOrders(){
         }
     })
 }
+
+function loadAllCustomersName() {
+    $.ajax({
+        url:"customer",
+        method:"GET",
+        success:function (resp) {
+            loadAllCustomerDetails(resp);
+        }
+    })
+}
