@@ -299,10 +299,11 @@
                     </div>
                     <div class="place-order-items">
                         <lable>Places Qty :</lable>
-                        <input type="number" id="placeItemQty" />
+                        <input type="number" id="placeItemQty" min="1" max=""/>
+                        <lable id="placeItemQtyValidation">Not Available Qty</lable>
                     </div>
                     <div class="place-order-items-btn">
-                        <button type="clear">Reset</button>
+                        <button type="clear" id="placeResetBtn">Reset</button>
                         <button type="button" id="placeAddBtn">Add</button>
                     </div>
 
@@ -333,27 +334,27 @@
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>No of Items:</h3>
-                        <lable>001</lable>
+                        <lable id="placeNoOfItems">001</lable>
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>Total Balance($):</h3>
-                        <lable>0013.99</lable>
+                        <lable id="placeTotalBalance">0013.99</lable>
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>Disscount(%):</h3>
-                        <input type="text"/>
+                        <input type="text" id="placeDisscount"/>
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>Sub Total($):</h3>
-                        <lable>0013.33</lable>
+                        <lable id="placeSubTotal">0013.33</lable>
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>Pay In($):</h3>
-                        <input type="text"/>
+                        <input type="text" id="placePayIn"/>
                     </div>
                     <div class="place-order-details-menu-summary-item">
                         <h3>Pay Balance($):</h3>
-                        <lable>0013.33</lable>
+                        <lable id="placePayBalance">0013.33</lable>
                     </div>
                     <div class="place-order-btn">
                         <button type="button" id="place-order-btn-cancel">Cancel</button>

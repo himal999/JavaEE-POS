@@ -1,6 +1,39 @@
 var count=1;
 var itemsArray ;
 
+
+const placePageInit = function () {
+    $('#placeAddBtn').attr('disabled','disabled')
+    $('#placeResetBtn').attr('disabled','disabled');
+    $('#place-order-btn-cancel').attr('disabled','disabled');
+    $('#place-order-btn-ok').attr('disabled','disabled');
+
+    $('#placeItemUnitPrice').attr("readonly", "readonly");
+    $('#placeItemStock').attr("readonly", "readonly");
+
+    $('#placeItemQtyValidation').css('display','none');
+
+    clearPlaceFields();
+
+
+}
+function clearPlacesFields() {
+    $("#placeItemName").val("");
+    $("#placeItemUnitPrice").val("");
+    $("#placeItemStock").val("");
+    $("#placeItemQty").val("");
+}
+function clearPlaceFields() {
+    clearPlacesFields();
+    $("#placeNoOfItems").text("");
+    $("#placeTotalBalance").text("");
+    $("#placeDisscount").val("");
+    $("#placeSubTotal").text("");
+    $("#placePayIn").val("");
+    $("#placePayBalance").text("");
+
+}
+
 const loadAllItemDetails  = function (items) {
     $("#item-list").empty();
     $("#item-list>li").off();
@@ -51,6 +84,7 @@ const loadAllItemDetails  = function (items) {
                 $("#placeItemName").val(item.getItemName());
                 $('#placeItemUnitPrice').val(item.getItemUnitPrice());
                 $('#placeItemStock').val(item.getItemStock())
+                $("#placeItemQty").attr("max",item.getItemStock());
             }
         }
         $('#item-list').toggle();
@@ -110,4 +144,22 @@ const addTable = function () {
             $(this).closest("tr").find(".placeQty").text(--currentQty);
         }
     });
+
+    $('#placeAddBtn').attr('disabled','disabled');
+}
+
+function checkValidQty() {
+
+    var inputQty = $("#placeItemQty").val();
+    var availableQty  = $("#placeItemStock").val();
+
+    if(+availableQty >= +inputQty){
+        $('#placeAddBtn').removeAttr('disabled')
+        $('#placeResetBtn').removeAttr('disabled');
+        $('#placeItemQtyValidation').css('display','none');
+    }else{
+        $('#placeAddBtn').attr('disabled','disabled')
+        $('#placeResetBtn').removeAttr('disabled');
+        $('#placeItemQtyValidation').css('display','block');
+    }
 }

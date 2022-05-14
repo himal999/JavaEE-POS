@@ -196,6 +196,8 @@ $('#place-order').click(function () {
 
     $('.customer').removeClass('body-blue');
     $('.item').removeClass('body-blue');
+
+    placePageInit();
 });
 
 $('#placeOrderCustomer').click(function () {
@@ -205,9 +207,20 @@ $('#placeOrderCustomer').click(function () {
 
 $('#placeAddBtn').click(function () {
     addTable();
+    clearPlacesFields();
+});
+$('#placeResetBtn').click(function () {
+    clearPlacesFields();
 });
 
-4
+$("#placeItemQty").on('keyup',function () {
+        checkValidQty();
+})
+
+
+
+
+
 
 
 

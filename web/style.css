@@ -726,6 +726,7 @@
   margin-right: 1rem;
   background-color: var(--color-red);
   border: none;
+  cursor: pointer;
 }
 
 .place-order .place-order-container .place-order-details-container .place-order-details-container-item .place-order-items-btn button[type="button"] {
@@ -736,6 +737,7 @@
   background-color: var(--color-blue);
   border: none;
   color: var(--color-primary);
+  cursor: pointer;
 }
 
 .place-order .place-order-container .place-order-details-container .place-order-details-container-table {
@@ -879,6 +881,15 @@
   z-index: 100;
 }
 
+#placeItemQtyValidation{
+  position: relative;
+  display: flex;
+  top: 25px;
+  left: -112px;
+  width: 160px;
+  color: red;
+  font-size: 12px;
+}
 
 .select-field {
   border: 1px solid var(--color-blue) !important;
