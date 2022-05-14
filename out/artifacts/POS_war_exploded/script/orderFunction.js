@@ -1,14 +1,45 @@
 var count=1;
+var itemsArray ;
 
 const loadAllItemDetails  = function (items) {
     $("#item-list").empty();
     $("#item-list>li").off();
+    itemsArray = items;
 
-    for (const temp of items){
+    if( $("#placeTbl>tr").length == 0){
+        for (const temp of items){
+            let li = `<li style="cursor: pointer;margin-left: .5rem;margin-bottom: .5rem;" class="listId">${temp.itemName}</li>`;
+            $("#item-list").append(li);
+        }
+    }else{
+        const alreadyItems = new Array();
+     $("#placeTbl>tr").each(function () {
+         alreadyItems.push($(this).find(":eq(1)").text());
 
-        let li = `<li style="cursor: pointer;margin-left: .5rem;margin-bottom: .5rem;" class="listId">${temp.itemName}</li>`;
-        $("#item-list").append(li);
+     });
+        for (const temp of items){
+            let li = `<li style="cursor: pointer;margin-left: .5rem;margin-bottom: .5rem;" class="listId">${temp.itemName}</li>`;
+            $("#item-list").append(li);
+        }
+
+        $("#placeTbl>tr").each(function () {
+            for (const temp of items){
+               var  tempName = temp.itemName;
+               var  alreadyName = $(this).find(":eq(1)").text();
+                if(tempName == alreadyName){
+                    $("#item-list>li").each(function () {
+                        var tempListName = $(this).text();
+                       if(tempName == tempListName ){
+                           $(this).remove();
+                       }
+                    });
+                }
+            }
+        });
     }
+
+
+
     $('.listId').click(function () {
         var item  = new Item();
         for(const temp of items) {
@@ -22,14 +53,16 @@ const loadAllItemDetails  = function (items) {
                 $('#placeItemStock').val(item.getItemStock())
             }
         }
-    })
+        $('#item-list').toggle();
+    });
+
 }
 
 const addTable = function () {
     $("#placeTbl").off();
 
 
-    let qty = `<div style="display: flex;position: relative;justify-content: center;font-size: 1.2rem;"><i class='bx bx-minus-circle  placeQtyDecremet' style="cursor: pointer" ></i><lable class="placeQty" style="margin-left: 1rem;margin-right: 1rem;">${$('#placeItemQty').val()}</lable><i class='bx bx-plus-circle placeQtyIncrement'style="cursor: pointer;"></i></div>`
+    let qty = `<div style="display: flex;position: relative;justify-content: center;font-size: 1.2rem;"><i class='bx bx-minus-circle  placeQtyDecremet' style="cursor: pointer" ></i><lable class="placeQty" style="margin-left: 1rem;margin-right: 1rem;width: 42px;display: flex;justify-content: center;">${$('#placeItemQty').val()}</lable><i class='bx bx-plus-circle placeQtyIncrement'style="cursor: pointer;"></i></div>`
 
     let row = `<tr><td>${count++}</td><td>${$("#placeItemName").val()}</td><td>${$('#placeItemUnitPrice').val()}</td><td>${qty}</td></tr>`;
 
@@ -38,7 +71,6 @@ const addTable = function () {
 
 
 
-           $(this).remove();
 
 
 
@@ -59,11 +91,23 @@ const addTable = function () {
 
     });
 
-    $("#placeTbl").on('click', '.placeQtyIncrement', function () {
+    $("#placeTbl").on('click','.placeQtyIncrement', function () {
 
+        var itemName = $(this).closest("tr").find("td:eq(1)").text();
+        var availableQty= undefined;
+
+        for(const temp of itemsArray){
+            if(temp.itemName == itemName){
+               availableQty =  temp.itemStock;
+            }
+        }
         var currentQty = $(this).closest("tr").find("td:eq(3)").text();
-        $(this).closest("tr").find(".placeQty").text(++currentQty);
+        currentQty++;
 
-
-    })
+        if(currentQty<=availableQty){
+            $(this).closest("tr").find(".placeQty").text(currentQty);
+        }else{
+            $(this).closest("tr").find(".placeQty").text(--currentQty);
+        }
+    });
 }
