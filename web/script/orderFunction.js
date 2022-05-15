@@ -1,5 +1,6 @@
 var count=0;
 var itemsArray ;
+var customerArray;
 var total= 0 ;
 
 const placePageInit = function () {
@@ -18,9 +19,13 @@ const placePageInit = function () {
     $("#payInValidation").css('display','none');
     clearPlaceFields();
 
+    //customer select box load data
     loadAllCustomersName();
+    //invoice number generated
     loadAllOrders();
+    //set Date
     setDate();
+    //set Time
     setInterval("setTime()",1000);
 
 
@@ -223,11 +228,14 @@ function setNoOfItems(){
 
 function setTotal() {
     var tempTotal = 0.00;
-    $("#placeTbl>tr").each(function () {
-            var unPrice = parseFloat($(this).find('td:eq(2)').text());
-            var qty = parseFloat($(this).find(".placeQty").text());
-        tempTotal += +unPrice * +qty;
-    });
+
+       $("#placeTbl>tr").each(function () {
+           var unPrice = parseFloat($(this).find('td:eq(2)').text());
+           var qty = parseFloat($(this).find(".placeQty").text());
+           tempTotal += +unPrice * +qty;
+       });
+
+
 
     $("#placeTotalBalance").text(tempTotal);
     total = tempTotal;
@@ -262,12 +270,61 @@ function setPayBalance() {
 }
 
 function loadAllCustomerDetails(customers) {
-    $("#customerList>option").empty();
-
+    $("#customerList>option").remove();
+     customerArray = customers;
     let option = `<option>Select Customer</option>`
     $("#customerList").append(option);
     for (const tempCustomer of customers){
          option = `<option>${tempCustomer.name}</option>`
          $("#customerList").append(option);
+    }
+}
+function findItemId(name) {
+    for (const temp of itemsArray){
+        if(temp.itemName == name){
+            return temp.itemCode;
+        }
+    }
+    return ;
+}
+function placingOrder() {
+    var orderDetail ;
+    const orderItem = new Array();
+
+    $("#placeTbl>tr").each(function () {
+
+      orderDetail = new OrderDetail(findItemId($(this).find("td:eq(1)").text()),$(this).find("td:eq(1)").text(),$(this).find(".placeQty").text());
+
+      var tempOrderDetail = {
+          "itemId":orderDetail.getItemId(),
+          "itemName":orderDetail.getItemName(),
+          "qty":orderDetail.getItemQty()
+      }
+      orderItem.push(tempOrderDetail);
+    })
+    const order  = new Order($("#invoiceNo").text(),getCustomerId(),$("#placeNoOfItems").text(),$("#date").text(),$("#placeTotalBalance").text(),$("#placeSubTotal").text(),orderItem);
+
+
+
+
+    var orderJSON = {
+        "invoiceNo":order.getOrderId(),
+        "customerId":order.getOrderCustomerId(),
+        "noOfItems":order.getOrderNoOfItems(),
+        "date":order.getOrderDate(),
+        "amount":order.getOrderAmount(),
+        "subAmount":order.getOrderDiscountAmount(),
+        "orderDetails":order.getOrderItem()
+    }
+
+    placeOrder(orderJSON);
+}
+
+function getCustomerId() {
+
+    for(const temp of customerArray){
+        if(temp.name ==  $("#customerList option:selected").text()){
+             return temp.id
+        }
     }
 }

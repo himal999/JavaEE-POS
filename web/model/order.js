@@ -1,11 +1,12 @@
 class  Order {
-    constructor(orderId,orderCustomerId,orderNoOfItems,orderDate,orderAmount,orderDiscountAmount) {
+    constructor(orderId,orderCustomerId,orderNoOfItems,orderDate,orderAmount,orderDiscountAmount,orderItem) {
         this.orderId = orderId;
         this.orderCustomerId= orderCustomerId;
         this.orderNoOfItems = orderNoOfItems;
         this.orderDate = orderDate;
         this.orderAmount = orderAmount;
         this.orderDiscountAmount = orderDiscountAmount;
+        this.orderItem = orderItem;
     }
 
     setOrderId =  function (orderId) {
@@ -47,5 +48,12 @@ class  Order {
     }
     getOrderDiscountAmount = function () {
        return  this.orderDiscountAmount ;
+    }
+
+    setOrderItem = function (orderItem) {
+        this.orderItem = orderItem;
+    }
+    getOrderItem = function () {
+        return this.orderItem;
     }
 }

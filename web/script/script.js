@@ -224,10 +224,11 @@ $('#placePayIn').on("keyup",function () {
     setPayBalance();
 })
 
-$('#place-order-btn-cancel').click(function () {
-    clearPlaceFields();
-    $("#placeTbl>tr").empty();
-});
+$('#place-order-btn-ok').click(function () {
+   placingOrder();
+})
+
+
 
 
 

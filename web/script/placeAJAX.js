@@ -27,3 +27,15 @@ function loadAllOrders() {
         }
     })
 }
+
+function placeOrder(orderDetail) {
+    $.ajax({
+        url:"place_order",
+        method:"POST",
+        contentType:"application/json",
+        data:JSON.stringify(orderDetail),
+        success:function (resp) {
+
+        }
+    })
+}

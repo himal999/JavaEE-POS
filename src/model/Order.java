@@ -3,20 +3,31 @@ author :Himal
 version : 0.0.1
 */
 
-import java.util.Date;
+import javax.json.JsonArray;
 
 public class Order {
     private String orderId;
     private String orderCustomerId;
     private int orderNoOfItems;
-    private Date orderDate;
+    private String orderDate;
     private Double orderAmount;
     private Double orderDiscountAmount;
+    private JsonArray orderItems;
 
     public Order() {
     }
 
-    public Order(String orderId, String orderCustomerId, int orderNoOfItems, Date orderDate, Double orderAmount, Double orderDiscountAmount) {
+    public Order(String orderId, String orderCustomerId, int orderNoOfItems, String orderDate, Double orderAmount, Double orderDiscountAmount, JsonArray orderItems) {
+        this.orderId = orderId;
+        this.orderCustomerId = orderCustomerId;
+        this.orderNoOfItems = orderNoOfItems;
+        this.orderDate = orderDate;
+        this.orderAmount = orderAmount;
+        this.orderDiscountAmount = orderDiscountAmount;
+        this.orderItems = orderItems;
+    }
+
+    public Order(String orderId, String orderCustomerId, int orderNoOfItems, String orderDate, Double orderAmount, Double orderDiscountAmount) {
         this.orderId = orderId;
         this.orderCustomerId = orderCustomerId;
         this.orderNoOfItems = orderNoOfItems;
@@ -49,11 +60,11 @@ public class Order {
         this.orderNoOfItems = orderNoOfItems;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -71,5 +82,13 @@ public class Order {
 
     public void setOrderDiscountAmount(Double orderDiscountAmount) {
         this.orderDiscountAmount = orderDiscountAmount;
+    }
+
+    public JsonArray getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(JsonArray orderItems) {
+        this.orderItems = orderItems;
     }
 }

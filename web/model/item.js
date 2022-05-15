@@ -4,6 +4,8 @@ function Item() {
     var __itemUnitPrice;
     var __itemStock;
 
+
+
     this.setItemCode = function (itemCode) {
         __itemCode = itemCode;
     }

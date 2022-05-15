@@ -561,6 +561,8 @@
   display: -ms-flexbox;
   display: flex;
   height: auto;
+  overflow: hidden;
+
 }
 
 .place-order .place-order-container {
