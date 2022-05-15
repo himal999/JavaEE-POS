@@ -88,10 +88,18 @@ function clearPlaceFields() {
 const loadAllItemDetails  = function (items) {
     $("#item-list").empty();
     $("#item-list>li").off();
-    itemsArray = items;
 
+
+    const availableItems = new Array();
+
+    for (const tt of items){
+        if(tt.itemStock > 0){
+            availableItems.push(tt);
+        }
+    }
+    itemsArray = availableItems;
     if( $("#placeTbl>tr").length == 0){
-        for (const temp of items){
+        for (const temp of availableItems){
             let li = `<li style="cursor: pointer;margin-left: .5rem;margin-bottom: .5rem;" class="listId">${temp.itemName}</li>`;
             $("#item-list").append(li);
         }
@@ -101,13 +109,13 @@ const loadAllItemDetails  = function (items) {
          alreadyItems.push($(this).find(":eq(1)").text());
 
      });
-        for (const temp of items){
+        for (const temp of availableItems){
             let li = `<li style="cursor: pointer;margin-left: .5rem;margin-bottom: .5rem;" class="listId">${temp.itemName}</li>`;
             $("#item-list").append(li);
         }
 
         $("#placeTbl>tr").each(function () {
-            for (const temp of items){
+            for (const temp of availableItems){
                var  tempName = temp.itemName;
                var  alreadyName = $(this).find(":eq(1)").text();
                 if(tempName == alreadyName){
@@ -126,7 +134,7 @@ const loadAllItemDetails  = function (items) {
 
     $('.listId').click(function () {
         var item  = new Item();
-        for(const temp of items) {
+        for(const temp of availableItems) {
             item.setItemCode(temp.itemCode);
             item.setItemName(temp.itemName);
             item.setItemUnitPrice(temp.itemUnitPrice);
