@@ -4,9 +4,9 @@ version : 0.0.1
 */
 
 import db.Db;
-import model.Item;
-import model.Order;
-import model.OrderDetail;
+import model.ItemDTO;
+import model.OrderDTO;
+import model.OrderDetailDTO;
 
 import javax.json.JsonValue;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class PlaceOrderController {
     Connection connection = null;
     PreparedStatement pst =null;
-    public boolean addOrder(Order order) throws SQLException {
+    public boolean addOrder(OrderDTO order) throws SQLException {
         try {
             connection = Db.db().getConnection();
             connection.setAutoCommit(false);
@@ -56,9 +56,9 @@ public class PlaceOrderController {
 
     }
 
-    public boolean addOrderDetail(Order order){
+    public boolean addOrderDetail(OrderDTO order){
         for (JsonValue temp:order.getOrderItems()) {
-            OrderDetail orderDetail = new OrderDetail(order.getOrderId(),temp.asJsonObject().getString("itemId"),temp.asJsonObject().getString("itemName"),Integer.parseInt(temp.asJsonObject().getString("qty")));
+            OrderDetailDTO orderDetail = new OrderDetailDTO(order.getOrderId(),temp.asJsonObject().getString("itemId"),temp.asJsonObject().getString("itemName"),Integer.parseInt(temp.asJsonObject().getString("qty")));
             try {
                 pst = connection.prepareStatement("INSERT INTO `order_details` VALUES (?,?,?,?)");
                 pst.setString(1,orderDetail.getOrderId());
@@ -88,9 +88,9 @@ public class PlaceOrderController {
             pst = Db.db().getConnection().prepareStatement("SELECT * FROM `item` WHERE `itemcode`=?");
             pst.setString(1,itemId);
             ResultSet rst = pst.executeQuery();
-            Item item =null;
+            ItemDTO item =null;
             if(rst.next()){
-                item  = new Item(rst.getString(1),rst.getString(2),rst.getDouble(3),rst.getInt(4));
+                item  = new ItemDTO(rst.getString(1),rst.getString(2),rst.getDouble(3),rst.getInt(4));
             }
 
             pst = connection.prepareStatement("UPDATE `item` SET `itemstock`=? WHERE `itemcode`=?");

@@ -4,9 +4,8 @@ version : 0.0.1
 */
 
 import db.Db;
-import model.Item;
-import model.Order;
-import model.OrderDetail;
+import model.OrderDTO;
+
 import javax.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +28,7 @@ public class PlaceOrderControllerServlet extends HttpServlet {
         try {
             ResultSet rst = Db.db().getConnection().prepareStatement("SELECT * FROM `order`").executeQuery();
             while (rst.next()){
-                Order order = new Order(rst.getString(1),rst.getString(2),rst.getInt(3),rst.getString(4),rst.getDouble(5),rst.getDouble(6));
+                OrderDTO order = new OrderDTO(rst.getString(1),rst.getString(2),rst.getInt(3),rst.getString(4),rst.getDouble(5),rst.getDouble(6));
 
                 orderJSON.add("orderId",order.getOrderId());
                 orderJSON.add("orderCustomerId",order.getOrderCustomerId());
@@ -52,7 +51,7 @@ public class PlaceOrderControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         JsonObject orderJSON= Json.createReader(req.getReader()).readObject();
-        Order order =  new Order(orderJSON.getString("invoiceNo"),orderJSON.getString("customerId"),Integer.parseInt(orderJSON.getString("noOfItems")),orderJSON.getString("date"),Double.parseDouble(orderJSON.getString("amount")),Double.parseDouble(orderJSON.getString("subAmount")),orderJSON.getJsonArray("orderDetails"));
+        OrderDTO order =  new OrderDTO(orderJSON.getString("invoiceNo"),orderJSON.getString("customerId"),Integer.parseInt(orderJSON.getString("noOfItems")),orderJSON.getString("date"),Double.parseDouble(orderJSON.getString("amount")),Double.parseDouble(orderJSON.getString("subAmount")),orderJSON.getJsonArray("orderDetails"));
 
         PlaceOrderController placeOrderController = new PlaceOrderController();
 

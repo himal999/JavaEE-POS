@@ -3,20 +3,20 @@ author :Himal
 version : 0.0.1
 */
 
-public class Item {
+public class ItemDTO {
     private String itemCode;
     private String itemName;
     private double itemUnitPrice;
     private int itemStock;
 
-    public Item(String itemCode, String itemName, double itemUnitPrice, int itemStock) {
+    public ItemDTO(String itemCode, String itemName, double itemUnitPrice, int itemStock) {
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.itemUnitPrice = itemUnitPrice;
         this.itemStock = itemStock;
     }
 
-    public Item() {
+    public ItemDTO() {
     }
 
     public String getItemCode() {

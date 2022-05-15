@@ -4,16 +4,16 @@ author :Himal
 version : 0.0.1
 */
 
-public class Customer {
+public class CustomerDTO {
    private String nic;
    private String name;
    private String address;
    private int tel;
 
-    public Customer() {
+    public CustomerDTO() {
     }
 
-    public Customer(String nic, String name, String address, int tel) {
+    public CustomerDTO(String nic, String name, String address, int tel) {
         this.nic = nic;
         this.name = name;
         this.address = address;

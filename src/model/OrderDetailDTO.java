@@ -6,16 +6,16 @@ version : 0.0.1
 
 
 
-public class OrderDetail {
+public class OrderDetailDTO {
     private String orderId;
     private String itemId;
     private String itemName;
     private int itemQty;
 
-    public OrderDetail() {
+    public OrderDetailDTO() {
     }
 
-    public OrderDetail(String orderId, String itemId, String itemName, int itemQty) {
+    public OrderDetailDTO(String orderId, String itemId, String itemName, int itemQty) {
         this.orderId = orderId;
         this.itemId = itemId;
         this.itemName = itemName;

@@ -4,51 +4,33 @@ author :Himal
 version : 0.0.1
 */
 
-import db.Db;
-import model.Customer;
+import dao.CustomerDAOImpl;
+import model.CustomerDTO;
 
-import javax.json.*;
-import javax.servlet.ServletException;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
 @WebServlet(urlPatterns = "/customer")
 public class CustomerControllerServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+
         try {
-            Connection connection = Db.db().getConnection();
-            ResultSet rst = connection.prepareStatement("SELECT * FROM `customer`").executeQuery();
-            Customer customer = null;
-            JsonArrayBuilder customerArray = Json.createArrayBuilder();
-            JsonObjectBuilder customerJSON = Json.createObjectBuilder();
-            while (rst.next()){
-                customer = new Customer(rst.getString(1),rst.getString(2),rst.getString(3),rst.getInt(4));
-                customerJSON.add("id",customer.getNic());
-                customerJSON.add("name",customer.getName());
-                customerJSON.add("address",customer.getAddress());
-                customerJSON.add("tel",customer.getTel());
-                customerArray.add(customerJSON.build());
-            }
-
-            PrintWriter writer = resp.getWriter();
-            writer.print(customerArray.build());
-
-
-
+            resp.setContentType("application/json");
+            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+            resp.getWriter().print(customerDAO.getAllCustomers());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -56,19 +38,14 @@ public class CustomerControllerServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        Customer customer = new Customer(req.getParameter("txtCustomerAddId"),req.getParameter("txtCustomerAddName"),req.getParameter("txtCustomerAddAddress"),Integer.parseInt(req.getParameter("txtCustomerAddTel")));
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
-            PreparedStatement pst = Db.db().getConnection().prepareStatement("INSERT INTO `customer` VALUES(?,?,?,?)");
-            pst.setString(1,customer.getNic());
-            pst.setString(2,customer.getName());
-            pst.setString(3,customer.getAddress());
-            pst.setInt(4,customer.getTel());
-            if(pst.executeUpdate()>0){
+            CustomerDTO customer = new CustomerDTO(req.getParameter("txtCustomerAddId"), req.getParameter("txtCustomerAddName"), req.getParameter("txtCustomerAddAddress"), Integer.parseInt(req.getParameter("txtCustomerAddTel")));
+            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+            if (customerDAO.addCustomer(customer)) {
 
-            }else{
+            } else {
 
             }
         } catch (SQLException throwables) {
@@ -76,51 +53,40 @@ public class CustomerControllerServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        JsonObject customerJson = Json.createReader(req.getReader()).readObject();
-        Customer customer = new Customer(customerJson.getString("id"),customerJson.getString("name"),customerJson.getString("address"),Integer.parseInt(customerJson.getString("tel")));
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
-            PreparedStatement pst = Db.db().getConnection().prepareStatement("UPDATE `customer` SET name=?,address=?,tel=? WHERE nic=?");
-            pst.setString(1,customer.getName());
-            pst.setString(2,customer.getAddress());
-            pst.setInt(3,customer.getTel());
-            pst.setString(4,customer.getNic());
+            JsonObject customerJson = Json.createReader(req.getReader()).readObject();
+            CustomerDTO customer = new CustomerDTO(customerJson.getString("id"), customerJson.getString("name"), customerJson.getString("address"), Integer.parseInt(customerJson.getString("tel")));
+            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+            if (customerDAO.updateCustomer(customer)) {
 
-            PrintWriter writer = resp.getWriter();
+            } else {
 
-
-            if(pst.executeUpdate()>0){
-                writer.write("updated customer");
-            }else{
-                writer.write("try again");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
 
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
-            PreparedStatement pst = Db.db().getConnection().prepareStatement("DELETE FROM `customer` WHERE nic=?");
-            pst.setString(1,req.getParameter("customerId"));
+            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+            if (customerDAO.deleteCustomer(req.getParameter("customerId"))) {
 
-            PrintWriter writer = resp.getWriter();
+            } else {
 
-
-            if(pst.executeUpdate()>0){
-                writer.write("success");
-            }else{
-                writer.write("try again");
             }
 
         } catch (SQLException throwables) {

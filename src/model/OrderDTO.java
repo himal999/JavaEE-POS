@@ -5,7 +5,7 @@ version : 0.0.1
 
 import javax.json.JsonArray;
 
-public class Order {
+public class OrderDTO {
     private String orderId;
     private String orderCustomerId;
     private int orderNoOfItems;
@@ -14,10 +14,10 @@ public class Order {
     private Double orderDiscountAmount;
     private JsonArray orderItems;
 
-    public Order() {
+    public OrderDTO() {
     }
 
-    public Order(String orderId, String orderCustomerId, int orderNoOfItems, String orderDate, Double orderAmount, Double orderDiscountAmount, JsonArray orderItems) {
+    public OrderDTO(String orderId, String orderCustomerId, int orderNoOfItems, String orderDate, Double orderAmount, Double orderDiscountAmount, JsonArray orderItems) {
         this.orderId = orderId;
         this.orderCustomerId = orderCustomerId;
         this.orderNoOfItems = orderNoOfItems;
@@ -27,7 +27,7 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    public Order(String orderId, String orderCustomerId, int orderNoOfItems, String orderDate, Double orderAmount, Double orderDiscountAmount) {
+    public OrderDTO(String orderId, String orderCustomerId, int orderNoOfItems, String orderDate, Double orderAmount, Double orderDiscountAmount) {
         this.orderId = orderId;
         this.orderCustomerId = orderCustomerId;
         this.orderNoOfItems = orderNoOfItems;

@@ -161,6 +161,11 @@ const addTable = function () {
 
     $('#placeTbl').append(row);
 
+    $("#placeTbl>tr").hover(function () {
+        $(this).addClass('hover')
+    },function () {
+        $(this).removeClass('hover')
+    });
 
     setNoOfItems();
     setTotal();

@@ -4,7 +4,7 @@ version : 0.0.1
 */
 
 import db.Db;
-import model.Item;
+import model.ItemDTO;
 
 import javax.json.*;
 import javax.servlet.ServletException;
@@ -25,13 +25,13 @@ public class ItemControllerServlet extends HttpServlet {
 
         try {
             resp.setContentType("application/json");
-            Item item ;
+            ItemDTO item ;
             JsonArrayBuilder itemArray = Json.createArrayBuilder();
             JsonObjectBuilder itemJSON = Json.createObjectBuilder();
 
             ResultSet  rst = Db.db().getConnection().prepareStatement("SELECT * FROM `item`").executeQuery();
             while (rst.next()){
-                item = new Item(rst.getString(1),rst.getString(2),rst.getDouble(3),rst.getInt(4));
+                item = new ItemDTO(rst.getString(1),rst.getString(2),rst.getDouble(3),rst.getInt(4));
                 itemJSON.add("itemCode",item.getItemCode());
                 itemJSON.add("itemName",item.getItemName());
                 itemJSON.add("itemUnitPrice",item.getItemUnitPrice());
@@ -52,7 +52,7 @@ public class ItemControllerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Item item = new Item(req.getParameter("txtItemAddId"),req.getParameter("txtItemAddName"),Double.parseDouble(req.getParameter("txtItemAddUnitPrice")),Integer.parseInt(req.getParameter("txtItemAddStock")));
+        ItemDTO item = new ItemDTO(req.getParameter("txtItemAddId"),req.getParameter("txtItemAddName"),Double.parseDouble(req.getParameter("txtItemAddUnitPrice")),Integer.parseInt(req.getParameter("txtItemAddStock")));
 
 
         try {
@@ -82,7 +82,7 @@ public class ItemControllerServlet extends HttpServlet {
 
         JsonObject itemJson = Json.createReader(req.getReader()).readObject();
 
-        Item  item = new Item( itemJson.getString("itemCode"),itemJson.getString("itemName"),Double.parseDouble(itemJson.getString("itemUnitPrice")),Integer.parseInt(itemJson.getString("itemStock")));
+        ItemDTO item = new ItemDTO( itemJson.getString("itemCode"),itemJson.getString("itemName"),Double.parseDouble(itemJson.getString("itemUnitPrice")),Integer.parseInt(itemJson.getString("itemStock")));
 
 
 
