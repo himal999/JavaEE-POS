@@ -226,6 +226,8 @@ $('#placePayIn').on("keyup",function () {
 
 $('#place-order-btn-ok').click(function () {
    placingOrder();
+   placePageInit();
+   loadAllOrders();
 })
 
 

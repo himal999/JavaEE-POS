@@ -4,6 +4,7 @@ version : 0.0.1
 */
 
 import db.Db;
+import model.Item;
 import model.Order;
 import model.OrderDetail;
 import javax.json.*;
@@ -53,66 +54,17 @@ public class PlaceOrderControllerServlet extends HttpServlet {
         JsonObject orderJSON= Json.createReader(req.getReader()).readObject();
         Order order =  new Order(orderJSON.getString("invoiceNo"),orderJSON.getString("customerId"),Integer.parseInt(orderJSON.getString("noOfItems")),orderJSON.getString("date"),Double.parseDouble(orderJSON.getString("amount")),Double.parseDouble(orderJSON.getString("subAmount")),orderJSON.getJsonArray("orderDetails"));
 
+        PlaceOrderController placeOrderController = new PlaceOrderController();
 
-        Connection connection = null;
         try {
-            connection = Db.db().getConnection();
-            connection.setAutoCommit(false);
-
-            PreparedStatement pst = connection.prepareStatement("INSERT INTO `order` VALUES (?,?,?,?,?,?)");
-            pst.setString(1,order.getOrderId());
-            pst.setString(2,order.getOrderCustomerId());
-            pst.setInt(3,order.getOrderNoOfItems());
-            pst.setString(4,order.getOrderDate());
-            pst.setDouble(5,order.getOrderAmount());
-            pst.setDouble(6,order.getOrderDiscountAmount());
-
-            if(pst.executeUpdate()>0){
-
-                for (JsonValue temp:order.getOrderItems()) {
-
-                    OrderDetail orderDetail = new OrderDetail(order.getOrderId(),temp.asJsonObject().getString("itemId"),temp.asJsonObject().getString("itemName"),Integer.parseInt(temp.asJsonObject().getString("qty")));
-                    PreparedStatement ps = connection.prepareStatement("INSERT INTO `order_details` VALUES (?,?,?,?)");
-                    ps.setString(1,orderDetail.getOrderId());
-                    ps.setString(2,orderDetail.getItemId());
-                    ps.setString(3,orderDetail.getItemName());
-                    ps.setInt(4,orderDetail.getItemQty());
-
-                    if(ps.executeUpdate()>0){
-
-                    }else{
-                        connection.rollback();
-                        connection.setAutoCommit(true);
-                        return;
-                    }
-                }
-                connection.commit();
-                connection.setAutoCommit(true);
-                return;
+            if(placeOrderController.addOrder(order)){
 
             }else{
-                connection.rollback();
-                connection.setAutoCommit(true);
+
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
-
-        finally {
-
-            try {
-
-                connection.setAutoCommit(true);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }
-
-
-
-
 
 
     }

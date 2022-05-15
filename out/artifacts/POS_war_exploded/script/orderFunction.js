@@ -27,6 +27,8 @@ const placePageInit = function () {
     setDate();
     //set Time
     setInterval("setTime()",1000);
+    //get Invoice no
+
 
 
 
@@ -41,15 +43,15 @@ function getInvoiceNumber(order){
         let temp = orderId[orderId.length - 1];
         temp = +temp + 1;
         if(+temp<=9){
-            $("#invoiceNo").text(`I-00${temp}`);
+            $("#invoiceNo").text(`00${temp}`);
         }else if(+temp<=99){
-            $("#invoiceNo").text(`I-0${temp}`);
+            $("#invoiceNo").text(`0${temp}`);
         }else{
-            $("#invoiceNo").text(`I-${temp}`);
+            $("#invoiceNo").text(`${temp}`);
         }
 
     }else{
-        $("#invoiceNo").text("I-001");
+        $("#invoiceNo").text("001");
 
     }
 }
@@ -78,6 +80,8 @@ function clearPlaceFields() {
     $("#placeSubTotal").text("");
     $("#placePayIn").val("");
     $("#placePayBalance").text("");
+
+    $("#placeTbl>tr").remove();
 
 }
 
