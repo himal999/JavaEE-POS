@@ -4,6 +4,7 @@ author :Himal
 version : 0.0.1
 */
 
+import dao.CustomerDAO;
 import dao.CustomerDAOImpl;
 import model.CustomerDTO;
 
@@ -19,12 +20,13 @@ import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/customer")
 public class CustomerControllerServlet extends HttpServlet {
+    CustomerDAO customerDAO = new CustomerDAOImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
             resp.setContentType("application/json");
-            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+
             resp.getWriter().print(customerDAO.getAllCustomers());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -42,7 +44,7 @@ public class CustomerControllerServlet extends HttpServlet {
 
         try {
             CustomerDTO customer = new CustomerDTO(req.getParameter("txtCustomerAddId"), req.getParameter("txtCustomerAddName"), req.getParameter("txtCustomerAddAddress"), Integer.parseInt(req.getParameter("txtCustomerAddTel")));
-            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+
             if (customerDAO.addCustomer(customer)) {
 
             } else {
@@ -62,7 +64,7 @@ public class CustomerControllerServlet extends HttpServlet {
         try {
             JsonObject customerJson = Json.createReader(req.getReader()).readObject();
             CustomerDTO customer = new CustomerDTO(customerJson.getString("id"), customerJson.getString("name"), customerJson.getString("address"), Integer.parseInt(customerJson.getString("tel")));
-            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+
             if (customerDAO.updateCustomer(customer)) {
 
             } else {
@@ -82,7 +84,7 @@ public class CustomerControllerServlet extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
-            CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+
             if (customerDAO.deleteCustomer(req.getParameter("customerId"))) {
 
             } else {

@@ -3,6 +3,7 @@ author :Himal
 version : 0.0.1
 */
 
+import dao.ItemDAO;
 import dao.ItemDAOImpl;
 import model.ItemDTO;
 import javax.json.*;
@@ -15,12 +16,14 @@ import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/item")
 public class ItemControllerServlet extends HttpServlet {
+    ItemDAO itemDAO = new ItemDAOImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
             resp.setContentType("application/json");
-            ItemDAOImpl itemDAO = new ItemDAOImpl();
+
             resp.getWriter().print(itemDAO.getAllItems());
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,7 +41,7 @@ public class ItemControllerServlet extends HttpServlet {
 
         try {
             ItemDTO item = new ItemDTO(req.getParameter("txtItemAddId"), req.getParameter("txtItemAddName"), Double.parseDouble(req.getParameter("txtItemAddUnitPrice")), Integer.parseInt(req.getParameter("txtItemAddStock")));
-            ItemDAOImpl itemDAO = new ItemDAOImpl();
+
             if (itemDAO.addItem(item)) {
 
             } else {
@@ -59,7 +62,7 @@ public class ItemControllerServlet extends HttpServlet {
         try {
             JsonObject itemJson = Json.createReader(req.getReader()).readObject();
             ItemDTO item = new ItemDTO(itemJson.getString("itemCode"), itemJson.getString("itemName"), Double.parseDouble(itemJson.getString("itemUnitPrice")), Integer.parseInt(itemJson.getString("itemStock")));
-            ItemDAOImpl itemDAO = new ItemDAOImpl();
+
             if (itemDAO.updateItem(item)) {
 
             } else {
@@ -77,7 +80,7 @@ public class ItemControllerServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            ItemDAOImpl itemDAO = new ItemDAOImpl();
+
             if (itemDAO.deleteItem(req.getParameter("itemCode"))) {
 
             } else {
