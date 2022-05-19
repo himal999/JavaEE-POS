@@ -49,13 +49,17 @@
 
 
         $("#customerTbl").on('click','.customerUpdateBtn',function(){
-                clearAllUpdateFields();
-                customerUpdate($(this).closest("tr"))
-
-            });
-
+                 $('#txtCustomerUpdateId').attr("readonly", "readonly");
+                 $("#customer-name-update").css('display','none');
+                 $("#customer-Address-update").css('display','none');
+                 $("#customer-tel-update").css('display','none');
+                 $("#customerUpdateConfirmBtn").attr('disabled','disabled');
+                 clearAllUpdateFields();
+                 customerUpdate($(this).closest("tr"))
+        });
+            $(".customerDeleteBtn").off();
             $("#customerTbl").on('click','.customerDeleteBtn',function(){
-               customerDelete($(this).closest("tr"))
+                customerDelete($(this).closest("tr"))
            });
     }
 }

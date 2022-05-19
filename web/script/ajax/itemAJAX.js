@@ -62,6 +62,7 @@ $('#itemAddBtn').click(function () {
         method:"POST",
         data:$("#item-add").serialize(),
         success:function () {
+            clearAllItemField();
             $.ajax({
                 url:"item",
                 method:"GET",

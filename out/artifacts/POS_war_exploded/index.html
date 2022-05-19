@@ -93,18 +93,22 @@
                   <div class="customer__add-form">
                     <label class="customer__add-form-label l1">Customer NIC :</label>
                     <input class="customer__add-form-input i1 " id="txtCustomerId" type="text" placeholder="e.g:991790381v" name="txtCustomerAddId">
+                      <label id="customer-nic">Not Valid NIC</label>
                   </div>
                   <div class="customer__add-form">
                     <label class="customer__add-form-label l2">Customer Name :</label>
                     <input class="customer__add-form-input i2" id="txtCustomerName" type="text" placeholder="e.g:Nimal Perera" name="txtCustomerAddName">
+                      <label id="customer-name">Not Valid Name</label>
                   </div>
                   <div class="customer__add-form">
                     <label  class="customer__add-form-label">Customer Address :</label>
                     <input class="customer__add-form-input i3"id="txtCustomerAddress" type="text" placeholder="e.g:Colombo" name="txtCustomerAddAddress">
+                      <label id="customer-Address">Not Valid Address</label>
                   </div>
                   <div class="customer__add-form">
                     <label  class="customer__add-form-label l4">Customer Tel-No :</label>
                     <input  class="customer__add-form-input"id="txtCustomerTel" type="text" placeholder="e.g:0718925966"name="txtCustomerAddTel">
+                      <label id="customer-tel">Not Valid TelNo</label>
                   </div>
                   <div class="customer__add-button">
                       <button type="reset">Clear</button>
@@ -144,18 +148,22 @@
             <div class="customer__update-form">
               <label class="customer__update-form-label ">Customer NIC :</label>
               <input class="customer__update-form-input l1" id="txtCustomerUpdateId" type="text" placeholder="e.g:991790381v" name="txtCustomerId">
+
             </div>
             <div class="customer__update-form">
               <label class="customer__update-form-label ">Customer Name :</label>
               <input class="customer__update-form-input l2" id="txtCustomerUpdateName" type="text" placeholder="e.g:Nimal Perera"name="txtCustomerName">
+                <label id="customer-name-update" >Not Valid Name</label>
             </div>
             <div class="customer__update-form">
               <label  class="customer__update-form-label">Customer Address :</label>
               <input class="customer__update-form-input "id="txtCustomerUpdateAddress" type="text" placeholder="e.g:Colombo"name="txtCustomerAddress">
+                <label id="customer-Address-update" >Not Valid Address</label>
             </div>
             <div class="customer__update-form">
               <label  class="customer__update-form-label l4">Customer Tel-No :</label>
               <input  class="customer__update-form-input l4"id="txtCustomerUpdateTel" type="text" placeholder="e.g:0718925966"name="txtCustomerTel">
+                <label id="customer-tel-update">Not Valid TelNo</label>
             </div>
             <div class="customer__update-button">
                 <button type="reset">Clear</button>
@@ -184,18 +192,22 @@
                     <div class="item__add-form">
                         <label class="item__add-form-label l1-i">Item Code :</label>
                         <input class="item__add-form-input" id="txtItemId" type="text" placeholder="e.g:991790381v" name="txtItemAddId">
+                        <lable id="itemCode">Not Valid Item Code</lable>
                     </div>
                     <div class="item__add-form">
                         <label class="item__add-form-label l2-i">Item Name :</label>
                         <input class="item__add-form-input i2" id="txtItemName" type="text" placeholder="e.g:Nimal Perera" name="txtItemAddName">
+                        <lable id="itemName">Not Valid Item Name</lable>
                     </div>
                     <div class="item__add-form">
                         <label  class="item__add-form-label l3-i">Unit Price($) :</label>
                         <input class="item__add-form-input "id="txtItemUnitPrice" type="text" placeholder="e.g:Colombo"name="txtItemAddUnitPrice">
+                        <lable id="itemUnitPrice">Not Valid Unit Price</lable>
                     </div>
                     <div class="item__add-form">
                         <label  class="item__add-form-label l4-i">Stock :</label>
                         <input  class="item__add-form-input "id="txtItemStock" type="text" placeholder="e.g:0718925966"name="txtItemAddStock">
+                        <lable id="itemStock">Not Valid Item Stock</lable>
                     </div>
                     <div class="item__add-button">
                         <button type="reset">Clear</button>
@@ -238,14 +250,17 @@
             <div class="item__update-form">
                 <label class="item__update-form-label l2-i ">Item Name :</label>
                 <input class="item__update-form-input" id="txtItemUpdateName" type="text" placeholder="e.g:Nimal Perera" name="txtItemUpdateName">
+                <label id="itemNameUpdate">Not Valid Name</label>
             </div>
             <div class="item__update-form">
                 <label  class="item__update-form-label ">Unit Price($) :</label>
                 <input class="item__update-form-input "id="txtItemUpdateUnitPrice" type="text" placeholder="e.g:Colombo" name="txtItemUpdateUnitPrice">
+                <label id="itemPriceUpdate">Not Valid Price</label>
             </div>
             <div class="item__update-form">
                 <label  class="item__update-form-label l4-i">Stock :</label>
                 <input  class="item__update-form-input "id="txtItemUpdateStock" type="text" placeholder="e.g:0718925966" name="txtItemUpdateStock">
+                <label id="itemUpdateQty">Not Valid Stock</label>
             </div>
             <div class="item__update-button">
                 <button type="reset">Clear</button>
@@ -364,8 +379,6 @@
     </div>
     <!--PLACE ORDER END-->
    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-   <script src="./script/script.js"></script>
-
     <script src="./model/customer.js"></script>
     <script src="./model/item.js"></script>
     <script src="model/order.js"></script>
@@ -376,6 +389,11 @@
     <script src="script/ajax/orderAJAX.js"></script>
     <script src="script/ajax/customerAJAX.js"></script>
     <script src="script/ajax/itemAJAX.js"></script>
+    <script src="script/validation/customer.js"></script>
+    <script src="script/validation/item.js"></script>
+   <script src="./script/script.js"></script>
+
+
 
 </body>
 </html>

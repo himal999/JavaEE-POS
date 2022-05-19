@@ -36,6 +36,11 @@ const loadAllItems = function (resp) {
         });
 
         $("#itemTbl").on('click','.itemUpdateBtn',function () {
+                $("#updateItemBtn").attr('disabled','disabled');
+                $('#txtItemUpdateId').attr("readonly", "readonly");
+                $("#itemNameUpdate").css("display",'none');
+                $("#itemPriceUpdate").css("display",'none');
+                $("#itemUpdateQty").css("display",'none');
                 itemUpdate($(this).closest('tr'));
         });
 
@@ -64,4 +69,13 @@ const itemDelete = function (currentRow) {
         deleteItem(currentRow.find("td:eq(1)").text());
         return;
     }
+}
+
+function clearAllItemField(){
+    $("#txtItemId").val("");
+    $("#txtItemName").val("");
+    $("#txtItemUnitPrice").val("");
+    $("#txtItemStock").val("");
+
+
 }

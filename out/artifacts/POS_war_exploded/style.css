@@ -912,6 +912,118 @@ color: red;
   top: 0px;
 }
 
+/* Validation*/
+#customer-nic{
+  display: flex;
+  width: 8rem;
+  position: absolute;
+  left: 195px;
+  top: 36px;
+  color: red;
+  font-size: 13px;
+}
+#customer-name{
+  display: flex;
+  width: 133px;
+  position: absolute;
+  left: 196px;
+  top: 36px;
+  color: red;
+  font-size: 13px;
+}
+#customer-Address{
+  display: flex;
+  position:absolute;
+  width: 151px;
+  left: 196px;
+  top: 36px;
+  color: red;
+  font-size: 13px;
+}
+#customer-tel{
+display: flex;
+width: 134px;
+position: absolute;
+  top: 36px;
+left: 198px;
+color: red;
+font-size: 13px;
+}
+/* customer update*/
+
+#customer-name-update{
+  display: flex;
+  position: absolute;
+  left: 195px;
+  top: 37px;
+  font-size: 12px;
+  color: red;
+}
+#customer-Address-update{
+  display: flex;
+  position: absolute;
+  left: 195px;
+  top: 37px;
+  font-size: 12px;
+  color: red;
+}
+#customer-tel-update{
+  display: flex;
+  position: absolute;
+  left: 195px;
+  top: 37px;
+  font-size: 12px;
+  color: red;
+}
+
+/*Item add validation*/
+#itemCode{
+  position: absolute;
+  display: flex;
+  left: 150px;
+  font-size: 13px;
+  color: red;
+  top: 37px;
+}
+#itemName{
+  position: absolute;
+  display: flex;
+  left: 150px;
+  font-size: 13px;
+  color: red;
+  top: 37px;
+}
+
+#itemUnitPrice{
+  position: absolute;
+  display: flex;
+  left: 150px;
+  font-size: 13px;
+  color: red;
+  top: 37px;
+}
+
+#itemStock{
+  position: absolute;
+  display: flex;
+  left: 150px;
+  font-size: 13px;
+  color: red;
+  top: 37px;
+}
+
+#itemPriceUpdate,#itemNameUpdate,#itemUpdateQty{
+  position: absolute;
+  display: flex;
+  left: 150px;
+  font-size: 13px;
+  color: red;
+  top: 37px;
+}
+
+
+
+
 .select-field {
   border: 1px solid var(--color-blue) !important;
   -webkit-box-shadow: 0px 0px 10px var(--color-blue) !important;

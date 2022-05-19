@@ -60,7 +60,35 @@ $('#txtCustomerTel').click(()=>{
     $('#txtCustomerTel').addClass('select-field')
 
 })
+//item Add select css
+$('#txtItemId').click(()=>{
+    $('#txtItemId').addClass('select-field');
+    $('#txtItemName').removeClass('select-field')
+    $('#txtItemUnitPrice').removeClass('select-field')
+    $('#txtItemStock').removeClass('select-field')
 
+})
+$('#txtItemName').click(()=>{
+    $('#txtItemId').removeClass('select-field');
+    $('#txtItemName').addClass('select-field')
+    $('#txtItemUnitPrice').removeClass('select-field')
+    $('#txtItemStock').removeClass('select-field')
+
+})
+$('#txtItemUnitPrice').click(()=>{
+    $('#txtItemId').removeClass('select-field');
+    $('#txtItemName').removeClass('select-field')
+    $('#txtItemUnitPrice').addClass('select-field')
+    $('#txtItemStock').removeClass('select-field')
+
+})
+$('#txtItemStock').click(()=>{
+    $('#txtItemId').removeClass('select-field');
+    $('#txtItemName').removeClass('select-field')
+    $('#txtItemUnitPrice').removeClass('select-field')
+    $('#txtItemStock').addClass('select-field')
+
+})
 
 // CUSTOMER FLOW
 
@@ -89,7 +117,7 @@ $('body').ready(function(){
     $('.customer').css('display','block');
     $('.cutomer__add').css('display','block')
 
-
+     $("#addCustomerBtn").attr('disabled','disabled');
 
      $('.customer').removeClass('body-blue');
      $('.item').removeClass('body-blue');
@@ -112,6 +140,14 @@ $('body').ready(function(){
 
         $('.customer').removeClass('body-blue');
         $('.item').removeClass('body-blue');
+
+        $("#itemAddBtn").attr('disabled','disabled');
+        $("#itemCode").css("display",'none');
+        $("#itemName").css("display",'none');
+        $("#itemUnitPrice").css("display",'none');
+        $("#itemStock").css("display",'none');
+
+        clearAllItemField();
     });
 
     //item view click
@@ -173,11 +209,15 @@ function clearAllFields(){
 
 $('#customer-update-delete-close').click(()=>{
     $('.customer').removeClass('body-blue');
-    $('.customer__update-delete').css('display','none')
+    $('.customer__update-delete').css('display','none');
+    $("#txtCustomerUpdateId").attr("readonly", "readonly");
+    $("#customerUpdateConfirmBtn").attr('disabled','disabled');
 })
 $('#item-update-delete-close').click(()=>{
     $('.item').removeClass('body-blue');
     $('.item__update-delete').css('display','none')
+    $("#txtItemUpdateId").attr("readonly","readonly");
+    $("#updateItemBtn").attr('disabled','disabled');
 })
 
 // PLACE ORDER

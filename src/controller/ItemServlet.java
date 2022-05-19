@@ -7,6 +7,7 @@ import dao.CrudDAO;
 import dao.DAOFactory;
 import dao.custom.impl.ItemDAOImpl;
 import dto.ItemDTO;
+import entity.Item;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -19,7 +20,7 @@ import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/item")
 public class ItemServlet extends HttpServlet {
-    CrudDAO<ItemDTO, String> itemDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ITEM);
+    CrudDAO<Item, String> itemDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ITEM);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
@@ -43,7 +44,7 @@ public class ItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
-            ItemDTO item = new ItemDTO(req.getParameter("txtItemAddId"), req.getParameter("txtItemAddName"), Double.parseDouble(req.getParameter("txtItemAddUnitPrice")), Integer.parseInt(req.getParameter("txtItemAddStock")));
+            Item item = new Item(req.getParameter("txtItemAddId"), req.getParameter("txtItemAddName"), Double.parseDouble(req.getParameter("txtItemAddUnitPrice")), Integer.parseInt(req.getParameter("txtItemAddStock")));
 
             if (itemDAO.add(item)) {
 
@@ -65,7 +66,7 @@ public class ItemServlet extends HttpServlet {
         try {
 
             JsonObject itemJson = Json.createReader(req.getReader()).readObject();
-            ItemDTO item = new ItemDTO(itemJson.getString("itemCode"), itemJson.getString("itemName"), Double.parseDouble(itemJson.getString("itemUnitPrice")), Integer.parseInt(itemJson.getString("itemStock")));
+            Item item = new Item(itemJson.getString("itemCode"), itemJson.getString("itemName"), Double.parseDouble(itemJson.getString("itemUnitPrice")), Integer.parseInt(itemJson.getString("itemStock")));
 
             if (itemDAO.update(item)) {
 
